@@ -7,6 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
+Review.destroy_all
+Booking.destroy_all
+Toothbrush.destroy_all
 User.destroy_all
 
 100.times do
@@ -14,7 +17,7 @@ User.destroy_all
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     address: "#{Faker::Address.street_address}, #{Faker::Address.zip_code},
-     #{Faker::Address.state}, #{Faker::Address.countrx}",
+     #{Faker::Address.state}, #{Faker::Address.country}",
     gender: ["female", "male"].sample,
     email: Faker::Internet.email,
     password: "password123"
@@ -23,17 +26,37 @@ end
 
 100.times do
   Toothbrush.create(
-    age: [1..100].sample,
-    people: [0..50].sample,
+    age: (1..100).to_a.sample,
+    people: (0..50).to_a.sample,
     material: ["plastic", "wood", "aluminium", "gold", "silver", "others"].sample,
-    brush_strength: [1..3].sample,
-    price: [1..100].sample,
-    user: User.all.sample.id
+    brush_strength: (1..3).to_a.sample,
+    price: (1..100).to_a.sample,
+    user: User.all.sample
 
     )
 end
 
 100.times do
-
+  toothbrush = Toothbrush.all.sample
+  days = (1..100).to_a.sample
+  Booking.create(
+    toothbrush: toothbrush,
+    days: days,
+    total_price: (days * toothbrush.price),
+    user: User.all.sample
+    )
 end
+
+50.times do
+  Review.create(
+    toothbrush: Toothbrush.all.sample,
+    user: User.all.sample,
+    content: Faker::Lorem.sentences
+    )
+end
+
+
+
+
+
 
