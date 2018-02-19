@@ -5,6 +5,6 @@ class ToothbrushesController < ApplicationController
   end
 
   def index
-    @toothbtushes = Toothbrush.all
+    @toothbrushes = Toothbrush.all
   end
 end
