@@ -33,7 +33,7 @@ end
     price: (1..100).to_a.sample,
     user: User.all.sample,
     name: Faker::GameOfThrones.character,
-    description: Faker::Lorem.sentences,
+    description: Faker::Lorem.paragraph,
     availability: [true, false].sample
     )
 end
@@ -53,7 +53,7 @@ end
   Review.create(
     toothbrush: Toothbrush.all.sample,
     user: User.all.sample,
-    content: Faker::Lorem.sentences
+    content: Faker::Lorem.paragraph
     )
 end
 
