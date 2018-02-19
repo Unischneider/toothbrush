@@ -1,11 +1,11 @@
 .card {
-  background-image: url("pexels-photo-298611.jpeg");
-  margin: 15px 0px;
+  background-color: #dedede;
   height: 175px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   background-position: center;
   color: white;
+  margin: 16px 0px 0px 0px;
   position: relative;
 }
 .card-user {
@@ -15,6 +15,7 @@
   width: 40px;
   border-radius: 50%;
 }
+
 .card-category {
   position: absolute;
   top: 10px;
