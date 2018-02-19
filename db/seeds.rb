@@ -34,7 +34,8 @@ end
     user: User.all.sample,
     name: Faker::GameOfThrones.character,
     description: Faker::Lorem.sentences,
-    availability: [true, false].sample
+    availability: [true, false].sample,
+    photo: "/assets/images/#{(1..14).to_a.sample}.jpg"
     )
 end
 

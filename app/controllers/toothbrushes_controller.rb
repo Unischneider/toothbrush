@@ -4,7 +4,7 @@ class ToothbrushesController < ApplicationController
     @toothbrush = Toothbrush.find(params[:id])
 
   def index
-    @toothbtushes = Toothbrush.all
+    @toothbrushes = Toothbrush.all
 
   end
 end
