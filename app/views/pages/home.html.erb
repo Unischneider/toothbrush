@@ -1,25 +1,34 @@
  <%= render "layouts/header" %>
 
-<div class="container">
+ <div class="container">
   <div class="row">
 
-<div class="col-xs-12 col-sm-7">
- <div class="container-home-left">
+    <div class="col-xs-12 col-sm-7">
+     <div class="container-home-left">
+<% @toothbrushes.each do |toothbrush| %>
+<div class="col-xs-12 col-sm-6">
+  <div class="card">
+    <div class="card-category">Popular</div>
+    <div class="card-description">
+      <h2><%= toothbrush.material %></h2>
+      <p>Very cool city, the best</p>
+    </div>
+    <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+    <a class="card-link" href="#" ></a>
+  </div>
+</div>
+<% end  %>
 
-        <div class="col-xs-12 col-sm-6">
-          <%= render "layouts/card" %>
-       </div>
-      </div>
-     </div>
+    </div>
+  </div>
 
-    <div class="col-xs-12 col-sm-5">
-  <div class="container-home-right">
-      <%= render "layouts/reviews" %>
+  <div class="col-xs-12 col-sm-5">
+    <div class="container-home-right">
       <%= render "layouts/reviews" %>
     </div>
   </div>
 
- </div>
+</div>
 </div>
 </div>
 
