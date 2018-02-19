@@ -3,7 +3,14 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 text-center">
-      <h1>The used toothbrush 3000 txd</h1>
+      <h1><%= @toothbrush.name %></h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+      <h4>
+        <%= @toothbrush.description %>
+      </h4>
     </div>
   </div>
   <div class="row">
@@ -46,8 +53,8 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-8 col-xs-offset-2 text-right">
-      <h4> <strong> <%= @toothbrush.price %> $ </strong></h4>
+    <div class="col-xs-8 col-xs-offset-2 text-center">
+      <h4> Available: <%= @toothbrush.availability %> Price: <strong> <%= @toothbrush.price %> $ </strong></h4>
     </div>
   </div>
 </div>
