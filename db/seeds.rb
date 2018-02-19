@@ -31,8 +31,10 @@ end
     material: ["plastic", "wood", "aluminium", "gold", "silver", "others"].sample,
     brush_strength: (1..3).to_a.sample,
     price: (1..100).to_a.sample,
-    user: User.all.sample
-
+    user: User.all.sample,
+    name: Faker::GameOfThrones.character,
+    description: Faker::Lorem.paragraph,
+    availability: [true, false].sample
     )
 end
 
@@ -51,7 +53,7 @@ end
   Review.create(
     toothbrush: Toothbrush.all.sample,
     user: User.all.sample,
-    content: Faker::Lorem.sentences
+    content: Faker::Lorem.paragraph
     )
 end
 
