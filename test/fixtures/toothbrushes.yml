@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  uses: 1
+  age: 1
+  people: 1
+  material: MyString
+  brush_strength: 1
+  price: 1
+  user: one
+
+two:
+  uses: 1
+  age: 1
+  people: 1
+  material: MyString
+  brush_strength: 1
+  price: 1
+  user: two
