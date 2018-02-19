@@ -33,14 +33,9 @@ end
     price: (1..100).to_a.sample,
     user: User.all.sample,
     name: Faker::GameOfThrones.character,
-<<<<<<< HEAD
-    description: Faker::Lorem.sentences,
-    availability: [true, false].sample,
-    photo: "/assets/images/#{(1..14).to_a.sample}.jpg"
-=======
+    photo: "/assets/images/#{(1..14).to_a.sample}.jpg",
     description: Faker::Lorem.paragraph,
     availability: [true, false].sample
->>>>>>> master
     )
 end
 
