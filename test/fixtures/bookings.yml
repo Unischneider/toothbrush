@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  toothbrush: one
+  total_price: 1
+  days: 1
+
+two:
+  user: two
+  toothbrush: two
+  total_price: 1
+  days: 1
