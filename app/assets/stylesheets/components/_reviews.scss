@@ -1,46 +1,42 @@
-.message {
+.review {
   display: flex;
   align-items: center;
   padding: 20px;
   border-bottom: 1px solid rgba(220,224,244,0.4);
 }
-.message:last-child {
+.review:last-child {
   border-bottom: none;
 }
-.message-body {
+.review-body {
   flex-grow: 1;
 }
-.message-name {
+.review-name {
   padding-left: 10px;
   min-width: 100px;
 }
-.message-name h3 {
+.review-name h3 {
   font-size: 13px;
   margin-bottom: 0px;
 }
-.message-name p {
+.review-name p {
   font-size: 13px;
   font-weight: lighter;
   opacity: 0.6;
   margin-top: 5px;
 }
-.message-body {
-  padding-left: 10px;
+.review-body {
   font-size: 13px;
   color: rgba(0,0,0,0.7);
 }
-.message-body {
-  padding-left: 20px;
-  color: rgba(0,0,0,0.4);
-}
-.message-body strong{
+
+.review-body strong{
   color: rgba(0,0,0,0.9);
   color: rgba(0,0,0,0.9);
 }
-.message-body p {
+.review-body p {
   margin: 6px 0;
 }
-.message-status {
+.review-status {
   font-size: 14px;
   font-weight: bold;
 }
