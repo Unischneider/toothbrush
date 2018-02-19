@@ -1,5 +1,5 @@
 class ToothbrushesController < ApplicationController
   def show
-    @toothbrush = Toothbrush.find(:id)
+    @toothbrush = Toothbrush.find(params[:id])
   end
 end
