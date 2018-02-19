@@ -1,27 +1,23 @@
  <%= render "layouts/header" %>
-
  <div class="container">
   <div class="row">
-
     <div class="col-xs-12 col-sm-7">
      <div class="container-home-left">
-<% @toothbrushes.each do |toothbrush| %>
-<div class="col-xs-12 col-sm-6">
-  <div class="card">
-    <div class="card-category">Popular</div>
-    <div class="card-description">
-      <h2><%= toothbrush.material %></h2>
-      <p>Very cool city, the best</p>
+      <% @toothbrushes.each do |toothbrush| %>
+      <div class="col-xs-12 col-sm-6">
+        <div class="card">
+          <div class="card-category">Popular</div>
+          <div class="card-description">
+            <h2><%= toothbrush.material %></h2>
+            <p>Very cool city, the best</p>
+          </div>
+          <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+          <a class="card-link" href="#" ></a>
+        </div>
+      </div>
+      <% end  %>
     </div>
-    <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-    <a class="card-link" href="#" ></a>
   </div>
-</div>
-<% end  %>
-
-    </div>
-  </div>
-
   <div class="col-xs-12 col-sm-5">
     <div class="container-home-right">
       <%= render "layouts/reviews" %>
