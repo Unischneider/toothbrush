@@ -1,0 +1,53 @@
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <h1>The used toothbrush 3000 txd</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-5">
+      <h2>
+        Information about the toothbrush
+      </h2>
+      <ul>
+        <li>
+          Age of the toothbrush <strong> <%= @toothbrush.age %></strong>
+        </li>
+        <li>
+          Amount of different peopple that used the toothbrush
+          <strong> <%= @toothbrush.people %> %></strong>
+        </li>
+        <li>
+          Materail: <strong> <%= @toothbrush.material %></strong>
+        </li>
+        <li>
+          Brush-strength: <strong> <%= @toothbrush.brush_strength %></strong>
+        </li>
+      </ul>
+
+    </div>
+    <div class="col-xs-5 col-xs-offset-2">
+      <h2>
+        Information about the owner
+      </h2>
+      <ul>
+        <li>
+          Name: <strong><%= @toothbrush.user.first_name %></strong>
+        </li>
+        <li>
+          Gender: <strong> <%= @toothbrush.user.gender %></strong>
+        </li>
+        <li>
+          Address: <strong> <%= @toothbrush.user.address %></strong>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2 text-right">
+      <h4> <strong> <%= @toothbrush.price %> $ </strong></h4>
+    </div>
+  </div>
+</div>
