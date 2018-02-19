@@ -53,7 +53,7 @@ end
   Review.create(
     toothbrush: Toothbrush.all.sample,
     user: User.all.sample,
-    content: Faker::Lorem.sentences
+    content: Faker::Lorem.paragraph
     )
 end
 
