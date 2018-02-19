@@ -1,1 +1,6 @@
-<h1>This is the list of toothbrushes</h1>
+<h1>Get your dream toothbrush</h1>
+<ul>
+<% @toothbrushes.each do |t| %>
+  <li><%= t.name %>: <%= t.description %></li>
+<% end %>
+</ul>
