@@ -1,4 +1,23 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+ <%= render "layouts/header" %>
+ <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-7">
+     <div class="container-home-left">
+        <%= render "layouts/card" %>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-5">
+    <div class="container-home-right">
+      <%= render "layouts/reviews" %>
+    </div>
+  </div>
 
-<%= link_to "go to toothbrushes", toothbrushes_path %>
+</div>
+</div>
+</div>
+
+
+
+
+
+

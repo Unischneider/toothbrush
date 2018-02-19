@@ -1,0 +1,45 @@
+<h2 class="text-center">START YOUR RENTAL TODAY</h2>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-4 col-xs-offset-4">
+
+      <div class="information">
+        <h3 class="text-center">General Information</h3>
+        <ol>
+          <li>Age:            <%= @toothbrush.age %></li>
+          <li>Material:       <%= @toothbrush.material %></li>
+          <li>Brush-Strength: <%= @toothbrush.brush_strength %></li>
+          <li>Used:           <%= @toothbrush.people %></li>
+          <br>
+          <li>Price: <%= @toothbrush.price %></li>
+        </ol>
+      </div>
+
+      <div>
+        <% if @toothbrush.availability = true %>
+          <p>
+          When would you like to have it?
+          </p>
+        <% else %>
+          <p>
+          Sadly this item is not available!
+          Come back in the next days?!
+          </p>
+        <% end %>
+      </div>
+
+      <br>
+      <h3 class="text-center">Choose your Dates</h3>
+      <div class="label">
+        <%= simple_form_for [@toothbrush] do |f| %>
+          <%= f.input :starting_date %>
+          <%= f.input :ending_date %>
+          <%= f.submit "Get Your New Toothbrush", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+      <br>
+      <%= link_to "Get Back", toothbrushes_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>
