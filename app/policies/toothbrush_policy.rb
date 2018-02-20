@@ -9,11 +9,11 @@ class ToothbrushPolicy < ApplicationPolicy
     true
   end
 
-  def new?
+  def create?
     true
   end
 
-  def create?
+  def edit
     true
   end
 

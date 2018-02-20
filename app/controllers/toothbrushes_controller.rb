@@ -25,6 +25,11 @@ class ToothbrushesController < ApplicationController
     end
   end
 
+  def edit
+    @toothbrush = Toothbrush.find(params[:id])
+    authorize @toothbrush
+  end
+
   def update
     authorize @toothbrush
   end
