@@ -12,7 +12,7 @@ Booking.destroy_all
 Toothbrush.destroy_all
 User.destroy_all
 
-100.times do
+20.times do
   User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
@@ -24,8 +24,8 @@ User.destroy_all
     )
 end
 
-100.times do
-  Toothbrush.create(
+20.times do
+  toothbrush = Toothbrush.new(
     age: (1..100).to_a.sample,
     people: (0..50).to_a.sample,
     material: ["plastic", "wood", "aluminium", "gold", "silver", "others"].sample,
@@ -33,13 +33,14 @@ end
     price: (1..100).to_a.sample,
     user: User.all.sample,
     name: Faker::GameOfThrones.character,
-    photo: "#{(1..14).to_a.sample}",
     description: Faker::Lorem.paragraph,
     availability: [true, false].sample
     )
+  toothbrush.remote_photo_url = "http://res.cloudinary.com/dojqtqak3/image/upload/v1519139874/#{(1..14).to_a.sample}"
+  toothbrush.save
 end
 
-100.times do
+20.times do
   toothbrush = Toothbrush.all.sample
   days = (1..100).to_a.sample
   def random_date from = 1518490800.0, to = Time.now
@@ -55,7 +56,7 @@ end
     )
 end
 
-50.times do
+10.times do
   Review.create(
     toothbrush: Toothbrush.all.sample,
     user: User.all.sample,
