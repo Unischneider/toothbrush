@@ -3,13 +3,6 @@
     <h1>Get your dream toothbrush</h1>
   </div>
   <div class="listing">
-    <ul>
-      <% @toothbrushes.each do |t| %>
-      <li>
-        <h3> <%= t.name %>:</h3>
-        <p><%= t.description %></p>
-      </li>
-      <% end %>
-    </ul>
+  <%= render 'layouts/card' %>
   </div>
 </div>
