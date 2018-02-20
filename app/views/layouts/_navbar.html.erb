@@ -12,13 +12,11 @@
     <a href="" class="navbar-wagon-item navbar-wagon-link">Messages</a>
 
     <!-- Profile picture with dropdown list -->
-    <% if current_user %>
-      <%= current_user.first_name %>
+    <% if user_signed_in? %>
+      <%= current_user.email %>
     <% else %>
       <%= link_to "Sign in" , new_user_session_path , class: "btn btn-custom"%>
       <%= link_to "Sign up" , new_user_registration_path, class: "btn btn-custom" %>
     <% end %>
   </div>
-
-
 </div>
