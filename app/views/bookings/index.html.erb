@@ -10,7 +10,7 @@
 
     <% @bookings.each do |booking| %>
     <% if booking.starting_on > Date.today %>
-    <% if booking.status == "Pending host validation" %>
+    <% if booking.status == "Pending owner validation" %>
     <li class="dashboard">
       <%= image_tag(booking.toothbrush.photo) %>
       <div class='product-body'>
