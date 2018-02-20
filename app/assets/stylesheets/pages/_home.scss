@@ -1,5 +1,32 @@
 // Specific CSS for your home-page
 .container-home-right {
-    margin-top: 15px;
-    background-color: white;
+  margin-top: 28px;
+  background-color: white;
 }
+
+.container-home-left {
+  margin-top: 15px;
+  background-color: white;
+}
+
+.home-intro-text-left {
+  h2 {
+    margin-left: 14px;
+    color: #b3b3b3;
+    font-size: 20px;
+    text-align: left;
+  }
+}
+
+.home-intro-text-right {
+  h2 {
+    padding-left: 4px;
+    font-size: 20px;
+    color: #b3b3b3;
+    text-align: left;
+  }
+}
+
+
+
+
