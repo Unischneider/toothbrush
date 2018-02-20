@@ -21,7 +21,7 @@ class ToothbrushPolicy < ApplicationPolicy
     user == record.user
   end
 
-  def destroy
+  def destroy?
     user == record.user
   end
 
