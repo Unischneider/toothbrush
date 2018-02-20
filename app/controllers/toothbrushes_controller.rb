@@ -31,6 +31,13 @@ class ToothbrushesController < ApplicationController
   end
 
   def update
+    @toothbrush = Toothbrush.find(params[:id])
+    @toothbrush.user = current_user
+    if @toothbrush.update(valid_params)
+      redirect_to toothbrush_path(@toothbrush)
+    else
+      render :edit
+    end
     authorize @toothbrush
   end
 
