@@ -1,5 +1,5 @@
 
-<div class="banner" style="background-image: url('<%= cl_image_tag "#{@toothbrush.photo}" %>');">
+<div class="banner" style="background-image: url('<%= cl_image_path @toothbrush.photo, crop: :fill %>');">
   <div class="banner-content">
     <h1><%= @toothbrush.name %></h1>
   </div>
