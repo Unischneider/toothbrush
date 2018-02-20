@@ -21,7 +21,7 @@ User.destroy_all
     gender: ["female", "male"].sample,
     email: Faker::Internet.email,
     password: "password123"
-     )
+    )
 end
 
 100.times do
@@ -42,11 +42,16 @@ end
 100.times do
   toothbrush = Toothbrush.all.sample
   days = (1..100).to_a.sample
+  def random_date from = 1518490800.0, to = Time.now
+    Time.at(from + rand * (to.to_f - from.to_f))
+  end
+  date = random_date
   Booking.create(
     toothbrush: toothbrush,
-    days: days,
-    total_price: (days * toothbrush.price),
-    user: User.all.sample
+    user: User.all.sample,
+    status: ["Pending renter request", "Pending owner validation", "Confirmed", "Canceled"].sample,
+    starting_on: date.strftime("%d/%m/%Y"),
+    ending_on: (date + (86400..604800).to_a.sample).strftime("%d/%m/%Y")
     )
 end
 
@@ -54,7 +59,8 @@ end
   Review.create(
     toothbrush: Toothbrush.all.sample,
     user: User.all.sample,
-    content: Faker::Lorem.paragraph
+    content: Faker::Lorem.paragraph,
+    rating: (1..10).to_a.sample
     )
 end
 
