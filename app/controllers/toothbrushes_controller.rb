@@ -10,11 +10,12 @@ class ToothbrushesController < ApplicationController
 
   def new
     @toothbrush = Toothbrush.new
+    authorize @toothbrush
   end
 
   def create
-    @toothbrush = Toothbrush.new(valid_params)
     authorize @toothbrush
+    @toothbrush = Toothbrush.new(valid_params)
     if @toothbrush.save
       redirect_to toothbrush_path(@toothbrush)
     else
