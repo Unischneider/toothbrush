@@ -43,8 +43,9 @@ class ToothbrushesController < ApplicationController
 
   def destroy
     @toothbrush = Toothbrush.find(params[:id])
-    @toothbrush.destroy
     authorize @toothbrush
+    @toothbrush.destroy
+    redirect_to toothbrushes_path
   end
 
   private

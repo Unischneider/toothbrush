@@ -59,6 +59,11 @@
             <%= link_to "Edit", edit_toothbrush_path(@toothbrush) %>
           </div>
         <% end %>
+        <% if policy(@toothbrush).destroy? %>
+          <div class="btn btn-custom text-center">
+            <%= link_to "Delete", toothbrush_path, method: :delete %>
+          </div>
+        <% end %>
     </div>
   </div>
 </div>
