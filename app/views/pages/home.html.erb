@@ -2,7 +2,9 @@
  <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-7">
-      <h1>Check out our latest rentals</h1>
+      <div class="home-intro-text-left">
+      <h2>Check out our latest rentals</h2>
+        </div>
       <div class="container-home-left">
         <% @toothbrushes.each do |toothbrush| %>
         <div class="col-xs-12 col-sm-6">
@@ -20,7 +22,9 @@
       </div>
     </div>
     <div class="col-xs-12 col-sm-5">
-      <h1>What people think about us</h1>
+       <div class="home-intro-text-right">
+      <h2>What people think about us</h1>
+        </div>
       <div class="container-home-right">
         <%= render "layouts/reviews" %>
       </div>
