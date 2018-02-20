@@ -3,15 +3,14 @@
   <div class="review-name">
   <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
   <div class="review-name-text">
-    <h3>Gab Dehan</h3>
-    <p>10/07/17</p>
+    <h3><%= review.user.first_name %></h3>
+    <p><%= review.user.last_name %></p>
   </div>
   </div>
   <div class="review-body">
-    <p><strong>I am not sure yet!</strong></p>
+    <p><strong> <%= review.toothbrush.name %> - <%= review.toothbrush.material %></strong></p>
     <p>
       <%= review.content %>
-
     </p>
   </div>
 
