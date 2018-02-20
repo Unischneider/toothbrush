@@ -1,20 +1,18 @@
 <% @review.each do |review| %>
 <div class="review">
-  <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
   <div class="review-name">
-    <h3>Gab Dehan</h3>
-    <p>10/07/17</p>
+  <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
+  <div class="review-name-text">
+    <h3><%= review.user.first_name %></h3>
+    <p><%= review.user.last_name %></p>
+  </div>
   </div>
   <div class="review-body">
-    <p><strong>I am not sure yet!</strong></p>
+    <p><strong> <%= link_to review.toothbrush.name, toothbrush_path(review.toothbrush.id) %> - <%= review.toothbrush.material %></strong></p>
     <p>
       <%= review.content %>
-
     </p>
   </div>
-  <div class="review-status">
-    <p class="status pending">Pending</p>
-    <p class="price">€345</p>
-  </div>
+
 </div>
 <% end %>
