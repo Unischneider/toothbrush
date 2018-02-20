@@ -33,7 +33,7 @@ end
     price: (1..100).to_a.sample,
     user: User.all.sample,
     name: Faker::GameOfThrones.character,
-    photo: "#{(1..14).to_a.sample}",
+    photo: "http://res.cloudinary.com/dojqtqak3/image/upload/v1519139874/#{(1..14).to_a.sample}",
     description: Faker::Lorem.paragraph,
     availability: [true, false].sample
     )
