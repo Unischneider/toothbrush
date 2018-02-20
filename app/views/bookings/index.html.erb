@@ -1,0 +1,128 @@
+<div class="text-center padded">
+  <h2>All my Toothbrushes</h2>
+</div>
+<div class="text-center">
+  <h4 id="red-word">MY FUTURE TOOTHBRUSHES</h4>
+</div>
+
+<div class="wrapper-dashboard">
+  <ul class="list-unstyled">
+
+    <% @bookings.each do |booking| %>
+    <% if booking.starting_on > Date.today %>
+    <% if booking.status == "Pending host validation" %>
+    <li class="dashboard">
+      <%= image_tag(booking.toothbrush.photo, width: 400, height: 300, crop: :fill, class: "pdt-image hidden-xs" ) %>
+      <div class='product-body'>
+        <h2><%= booking.toothbrush.name %></h2>
+        <h4><%= booking.toothbrush.description %></h4>
+        <p>Age: <strong><%= booking.toothbrush.age %></strong></p>
+        <p>Material: <strong><%= booking.toothbrush.material %></strong></p>
+        <p>Brush-Strength: <strong><%= booking.toothbrush.brush_strength %></strong></p>
+        <p>Total price: <strong><%= booking.total_price %> €</strong></p>
+      </div>
+      <div>
+        <ul class="list-unstyled hidden-sm hidden-xs padded">
+          <li><strong>Wait for the owner to confirm. Stay tuned !</strong></li>
+          <li class="text-right"><%= link_to "Delete this rental", booking_path(booking), method: :delete, class:"btn btn-default", data: {confirm: "Are you sure?"} %></li>
+        </ul>
+      </div>
+    </li>
+    <% end %>
+
+    <% if booking.status == "Confirmed" %>
+    <li class="dashboard">
+      <%= image_tag(booking.toothbrush.photo, width: 400, height: 300, crop: :fill, class: "pdt-image hidden-xs" ) %>
+      <div class='product-body'>
+        <h2><%= booking.toothbrush.name %></h2>
+        <h4><%= booking.toothbrush.description %></h4>
+        <p>Age: <strong><%= booking.toothbrush.age %></strong></p>
+        <p>Material: <strong><%= booking.toothbrush.material %></strong></p>
+        <p>Brush-Strength: <strong><%= booking.toothbrush.brush_strength %></strong></p>
+        <p>Total price: <strong><%= booking.total_price %> €</strong></p>
+      </div>
+      <div>
+        <ul class="list-unstyled hidden-sm hidden-xs padded">
+          <li><strong>Your rental is confirmed !</strong></li>
+          <li class="text-right"><%= link_to "Delete this rental", booking_path(booking), method: :delete, class:"btn btn-default", data: {confirm: "Are you sure?"} %> </li>
+        </ul>
+      </div>
+    </li>
+    <% end %>
+
+    <% if booking.status == "Canceled" %>
+    <li class="dashboard">
+      <%= image_tag(booking.toothbrush.photo, width: 400, height: 300, crop: :fill, class: "pdt-image hidden-xs" ) %>
+      <div class='product-body'>
+        <h2><%= booking.toothbrush.name %></h2>
+        <h4><%= booking.toothbrush.description %></h4>
+        <p>Age: <strong><%= booking.toothbrush.age %></strong></p>
+        <p>Material: <strong><%= booking.toothbrush.material %></strong></p>
+        <p>Brush-Strength: <strong><%= booking.toothbrush.brush_strength %></strong></p>
+        <p>Total price: <strong><%= booking.total_price %> €</strong></p>
+      </div>
+      <div>
+        <ul class="list-unstyled hidden-sm hidden-xs padded">
+          <li><p><%= booking.toothrbush.user.first_name%> canceled your rental </p></li>
+        </ul>
+      </div>
+    </li>
+    <% end %>
+    <% end %>
+
+    <% end %>
+  </ul>
+</div>
+
+<div class="padded"></div>
+
+<div class="text-center">
+  <h4 id="red-word">MY LAST TOOTHBRUSHES</h4>
+</div>
+
+<div class="wrapper-dashboard">
+  <ul class="list-unstyled">
+    <% @bookings.each do |booking| %>
+    <% if booking.starting_on <= Date.today %>
+    <% if booking.status == "Confirmed" %>
+    <li class="dashboard">
+      <%= image_tag(booking.toothrbush.photo, width: 400, height: 300, crop: :fill, class: "pdt-image hidden-xs" ) %>
+      <div class='product-body'>
+        <h2><%= booking.toothbrush.name %></h2>
+        <h4><%= booking.toothbrush.description %></h4>
+        <p>Age: <strong><%= booking.toothbrush.age %></strong></p>
+        <p>Material: <strong><%= booking.toothbrush.material %></strong></p>
+        <p>Brush-Strength: <strong><%= booking.toothbrush.brush_strength %></strong></p>
+        <p>Total price: <strong><%= booking.total_price %> €</strong></p>
+      </div>
+      <div>
+        <% if booking.review %>
+        <div class="text-center">
+          <div class="review-coment">
+           <% booking.review.rating.times do %>
+           <i class="fa fa-star" aria-hidden="true" ></i>
+           <% end %>
+           <% (5- booking.review.rating).times do %>
+           <i class="fa fa-star-o" aria-hidden="true"></i>
+           <% end %>
+           <p> <%= booking.review.content %> </p>
+         </div>
+       </div>
+       <%  else %>
+       <div class="text-center review">
+         <h3 class="text-center">Leave a review?</h3>
+         <%= render 'reviews/form', booking: booking, review: @review %>
+       </div>
+       <% end %>
+     </div>
+   </li>
+   <% end %>
+
+
+   <% end %>
+
+   <% end %>
+ </ul>
+</div>
+
+
