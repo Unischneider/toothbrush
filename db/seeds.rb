@@ -48,8 +48,6 @@ end
   date = random_date
   Booking.create(
     toothbrush: toothbrush,
-    days: days,
-    total_price: (days * toothbrush.price),
     user: User.all.sample,
     status: ["Pending renter request", "Pending owner validation", "Confirmed", "Canceled"].sample,
     starting_on: date.strftime("%d/%m/%Y"),
