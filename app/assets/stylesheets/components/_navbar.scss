@@ -10,6 +10,17 @@
   justify-content: space-between;
 }
 
+.welcome-message {
+  display: inline-flex;
+  font-size: 14px;
+  p {
+    margin: 0;
+  }
+  .email-welcome {
+    padding: 3px 7px;
+  }
+}
+
 /* Logo */
 .navbar-wagon-brand img {
   height: 50px;
@@ -74,4 +85,16 @@
   transform: rotate(45deg);
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
+}
+
+.btn-login {
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    /* letter-spacing: 1px; */
+    text-transform: capitalize;
+    background-color: #E91E63;
+    border-color: #ea1f62;
+    border-radius: 51px;
+    width: 87px;
 }
