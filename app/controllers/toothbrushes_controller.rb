@@ -1,5 +1,5 @@
 class ToothbrushesController < ApplicationController
-
+  skip_before_action :authenticate_user!, only: [:show, :index]
   def show
     @toothbrush = Toothbrush.find(params[:id])
     authorize @toothbrush
