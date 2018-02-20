@@ -6,6 +6,8 @@ class ToothbrushesController < ApplicationController
 
   def index
     @toothbrushes = Toothbrush.all
+    @toothbrush = Toothbrush.new
+    authorize @toothbrush
   end
 
   def new
@@ -14,11 +16,16 @@ class ToothbrushesController < ApplicationController
 
   def create
     @toothbrush = Toothbrush.new(valid_params)
+    authorize @toothbrush
     if @toothbrush.save
       redirect_to toothbrush_path(@toothbrush)
     else
       render :new
     end
+  end
+
+  def update
+    authorize @toothbrush
   end
 
   private

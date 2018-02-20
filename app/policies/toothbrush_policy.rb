@@ -4,6 +4,10 @@ class ToothbrushPolicy < ApplicationPolicy
       scope
     end
 
+    def index
+      true
+    end
+
     def create
       true
     end
