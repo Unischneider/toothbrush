@@ -2,6 +2,7 @@ class ToothbrushesController < ApplicationController
 
   def show
     @toothbrush = Toothbrush.find(params[:id])
+    authorize @toothbrush
   end
 
   def index
@@ -14,8 +15,8 @@ class ToothbrushesController < ApplicationController
   end
 
   def create
-    authorize @toothbrush
     @toothbrush = Toothbrush.new(valid_params)
+    authorize @toothbrush
     if @toothbrush.save
       redirect_to toothbrush_path(@toothbrush)
     else
