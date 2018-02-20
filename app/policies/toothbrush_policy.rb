@@ -4,11 +4,15 @@ class ToothbrushPolicy < ApplicationPolicy
       scope.all
     end
 
-    def create
+    def new?
       true
     end
 
-    def update
+    def create?
+      true
+    end
+
+    def update?
       user == record.user
     end
   end
