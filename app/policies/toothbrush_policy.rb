@@ -1,11 +1,7 @@
 class ToothbrushPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope
-    end
-
-    def index
-      true
+      scope.all
     end
 
     def create

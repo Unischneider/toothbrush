@@ -5,9 +5,7 @@ class ToothbrushesController < ApplicationController
   end
 
   def index
-    @toothbrushes = Toothbrush.all
-    @toothbrush = Toothbrush.new
-    authorize @toothbrush
+    @toothbrushes = policy_scope(Toothbrush)
   end
 
   def new
