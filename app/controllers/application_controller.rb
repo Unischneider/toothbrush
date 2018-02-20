@@ -20,3 +20,36 @@ class ApplicationController < ActionController::Base
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   end
 end
+
+
+
+# restaurants controller
+
+# def create
+#   authorize @restaurant
+# end
+
+
+# module FastFood
+#   def fast_food
+#     puts "burger"
+#   end
+# end
+
+
+# class Restaurant
+#   include FastFood
+# end
+
+# Restaurant.new.fast_food
+
+
+
+
+
+
+
+
+
+
+
