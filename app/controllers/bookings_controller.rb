@@ -13,7 +13,7 @@ class BookingsController < ApplicationController
       @booking.total_price = 0
     end
     if @booking.save
-      redirect_to booking_path(@booking)
+      redirect_to toothbrush_booking_path(@booking)
     else
       render :new
     end

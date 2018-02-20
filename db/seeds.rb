@@ -60,7 +60,8 @@ end
     toothbrush: Toothbrush.all.sample,
     user: User.all.sample,
     content: Faker::Lorem.paragraph,
-    rating: (1..10).to_a.sample
+    rating: (1..10).to_a.sample,
+    booking_id: (Booking.first.id..Booking.last.id).to_a.sample
     )
 end
 
