@@ -13,7 +13,6 @@
 
     <!-- Profile picture with dropdown list -->
     <% if user_signed_in? %>
-    <p>hello</p>
       <%= current_user.first_name %>
     <% else %>
       <%= link_to "Sign in" , new_user_session_path , class: "btn btn-custom"%>
