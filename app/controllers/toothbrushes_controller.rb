@@ -28,6 +28,12 @@ class ToothbrushesController < ApplicationController
     authorize @toothbrush
   end
 
+  def destroy
+    @toothbrush = Toothbrush.find(params[:id])
+    @toothbrush.destroy
+    authorize @toothbrush
+  end
+
   private
 
   def valid_params
