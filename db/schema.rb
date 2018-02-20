@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180219172256) do
+ActiveRecord::Schema.define(version: 20180220105100) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,9 @@ ActiveRecord::Schema.define(version: 20180219172256) do
     t.integer "days"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "starting_on"
+    t.date "ending_on"
+    t.string "status"
     t.index ["toothbrush_id"], name: "index_bookings_on_toothbrush_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -32,6 +35,9 @@ ActiveRecord::Schema.define(version: 20180219172256) do
     t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "rating"
+    t.bigint "booking_id"
+    t.index ["booking_id"], name: "index_reviews_on_booking_id"
     t.index ["toothbrush_id"], name: "index_reviews_on_toothbrush_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
@@ -76,6 +82,7 @@ ActiveRecord::Schema.define(version: 20180219172256) do
 
   add_foreign_key "bookings", "toothbrushes"
   add_foreign_key "bookings", "users"
+  add_foreign_key "reviews", "bookings"
   add_foreign_key "reviews", "toothbrushes"
   add_foreign_key "reviews", "users"
   add_foreign_key "toothbrushes", "users"
