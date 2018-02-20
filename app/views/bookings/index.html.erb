@@ -12,7 +12,7 @@
     <% if booking.starting_on > Date.today %>
     <% if booking.status == "Pending host validation" %>
     <li class="dashboard">
-      <%= image_tag(booking.toothbrush.photo, width: 400, height: 300, crop: :fill, class: "pdt-image hidden-xs" ) %>
+      <%= image_tag(booking.toothbrush.photo) %>
       <div class='product-body'>
         <h2><%= booking.toothbrush.name %></h2>
         <h4><%= booking.toothbrush.description %></h4>
@@ -32,7 +32,7 @@
 
     <% if booking.status == "Confirmed" %>
     <li class="dashboard">
-      <%= image_tag(booking.toothbrush.photo, width: 400, height: 300, crop: :fill, class: "pdt-image hidden-xs" ) %>
+      <%= image_tag(booking.toothbrush.photo) %>
       <div class='product-body'>
         <h2><%= booking.toothbrush.name %></h2>
         <h4><%= booking.toothbrush.description %></h4>
@@ -52,7 +52,7 @@
 
     <% if booking.status == "Canceled" %>
     <li class="dashboard">
-      <%= image_tag(booking.toothbrush.photo, width: 400, height: 300, crop: :fill, class: "pdt-image hidden-xs" ) %>
+      <%= image_tag(booking.toothbrush.photo) %>
       <div class='product-body'>
         <h2><%= booking.toothbrush.name %></h2>
         <h4><%= booking.toothbrush.description %></h4>
@@ -86,7 +86,7 @@
     <% if booking.starting_on <= Date.today %>
     <% if booking.status == "Confirmed" %>
     <li class="dashboard">
-      <%= image_tag(booking.toothrbush.photo, width: 400, height: 300, crop: :fill, class: "pdt-image hidden-xs" ) %>
+      <%= image_tag(booking.toothbrush.photo) %>
       <div class='product-body'>
         <h2><%= booking.toothbrush.name %></h2>
         <h4><%= booking.toothbrush.description %></h4>
@@ -96,16 +96,17 @@
         <p>Total price: <strong><%= booking.total_price %> €</strong></p>
       </div>
       <div>
-        <% if booking.review %>
+        <% @reviews.each do |review| %>
+        <% if review.booking_id = booking.id %>
         <div class="text-center">
           <div class="review-coment">
-           <% booking.review.rating.times do %>
+           <% review.rating.times do %>
            <i class="fa fa-star" aria-hidden="true" ></i>
            <% end %>
-           <% (5- booking.review.rating).times do %>
+           <% (5- review.rating).times do %>
            <i class="fa fa-star-o" aria-hidden="true"></i>
            <% end %>
-           <p> <%= booking.review.content %> </p>
+           <p> <%= review.content %> </p>
          </div>
        </div>
        <%  else %>
@@ -113,6 +114,7 @@
          <h3 class="text-center">Leave a review?</h3>
          <%= render 'reviews/form', booking: booking, review: @review %>
        </div>
+       <% end %>
        <% end %>
      </div>
    </li>

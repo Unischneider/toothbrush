@@ -19,7 +19,8 @@ class BookingsController < ApplicationController
   end
 
   def index
-    @bookings = Booking.where(user_id: current_user.id)
+    @bookings = Booking.all
+    @reviews = Review.all
     @review = Review.new
   end
 
