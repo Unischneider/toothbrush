@@ -13,10 +13,6 @@ class ToothbrushPolicy < ApplicationPolicy
     true
   end
 
-  def edit
-    true
-  end
-
   def update?
     user == record.user
   end
