@@ -1,5 +1,15 @@
 <div class="container">
- <h1><%= @user.first_name %> <%= @user.last_name %></h1>
-  <h2> <%= @user.email %> </h2>
-  <h3> <%= @user.address %> </h3>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="centering-container">
+        <div class="centering">
+        <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+        <h4>Address: <strong><%= @user.address %></strong></h4>
+        <div class="photo">
+          <%= cl_image_tag @user.photo, crop: :fill %>
+        </div>
+        </div>
+        </div>
+    </div>
+  </div>
 </div>
