@@ -1,25 +1,26 @@
-<div class="banner" style="background-image: url('<%= image_url "https://source.unsplash.com/1600x900/?toothbrush" %>');">
-  <div class="banner-content">
-    <h1>Make others experience your awesome toothbrush</h1>
-  </div>
-</div>
-
 <div class="container">
+  <div class="new-brush">
+  <h2 class="text-center">Make others experience your awesome toothbrush</h2>
+  </div>
   <div class="row">
     <div class="col-xs-8 col-xs-offset-2">
       <div class="form-group">
         <%= simple_form_for @toothbrush do |f|%>
+         <div class="col-xs-6">
           <%= f.input :name %>
           <%= f.input :age %>
           <%= f.input :uses %>
           <%= f.input :people %>
           <%= f.input :material, collection:  ["Aluminum", "Wood", "Carbon Fiber", "Gold", "Plastic", "Silver", "Gold", "Other" ]  %>
+          </div>
+          <div class="col-xs-6">
           <%= f.input :brush_strength, collection:  [1, 2, 3] %>
           <%= f.input :price %>
           <%= f.input :description %>
           <%= f.input :photo %>
           <%= f.input :photo_cache, as: :hidden %>
-          <%= f.submit %>
+          <%= f.submit class: "btn btn-custom" %>
+           </div>
         <% end %>
       </div>
     </div>

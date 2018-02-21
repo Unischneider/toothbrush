@@ -6,11 +6,21 @@
 @import "reviews";
 @import "card";
 @import "banner";
+@import "forms";
 
 .avatar {
   width: 30px;
   border-radius: 50%;
 }
+
+.new-brush {
+  h2 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #b3b3b3;
+  }
+}
+
 .avatar-large {
   width: 50px;
   border-radius: 50%;
