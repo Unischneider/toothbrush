@@ -13,8 +13,8 @@
           <%= f.input :age %>
           <%= f.input :uses %>
           <%= f.input :people %>
-          <%= f.input :material %>
-          <%= f.input :brush_strength %>
+          <%= f.input :material, collection:  ["Aluminum", "Wood", "Carbon Fiber", "Gold", "Plastic", "Silver", "Gold", "Other" ]  %>
+          <%= f.input :brush_strength, collection:  [1, 2, 3] %>
           <%= f.input :price %>
           <%= f.input :description %>
           <%= f.input :photo %>
