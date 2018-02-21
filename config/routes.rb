@@ -5,5 +5,6 @@ Rails.application.routes.draw do
 
   resources :toothbrushes
   resources :bookings, only: [:new, :show, :index]
+  resources :users, only: [:show, :edit, :update]
 
 end
