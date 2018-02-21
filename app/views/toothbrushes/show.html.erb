@@ -18,10 +18,14 @@
             <%= link_to "Delete", toothbrush_path, method: :delete %>
           </div>
         <% else %>
-          <h2>Do you want to rent it?</h2>
-          <div class="btn btn-custom text-center">
-            <%= link_to "Rent", new_toothbrush_booking_path(@toothbrush) %>
-          </div>
+          <% if @toothbrush.availability %>
+            <h2>Do you want to rent it?</h2>
+            <div class="btn btn-custom text-center">
+              <%= link_to "Rent", new_toothbrush_booking_path(@toothbrush) %>
+            </div>
+          <% else %>
+            <p>Sorry it is not available right now</p>
+          <% end %>
         <% end %>
       <% else %>
           <div class="btn btn-custom text-center">
