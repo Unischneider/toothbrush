@@ -1,3 +1,31 @@
 // Import page-specific CSS files here.
 @import "home";
 @import "signing";
+
+.spec-list {
+ margin-left: 14px;
+ padding: 19px;
+ background-color: #e8e8e8;
+ font-size: 15px;
+}
+
+.price-availability {
+  display: flex;
+}
+
+.available-icon {
+  color: green;
+}
+
+.unavailable-icon {
+  color: red;
+}
+
+.your-brush-options {
+  margin-top: 3px;
+  h2 {
+    font-size: 20px;
+    color: #b3b3b3;
+    margin-top: 12px;
+  }
+}

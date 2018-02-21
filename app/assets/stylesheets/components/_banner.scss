@@ -1,7 +1,10 @@
 .banner {
   color: white;
   text-align: center;
-  height: 100vh;
+  height: 50vh;
+  width: 100%;
+  background-position: center;
+  margin-top: 20px;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   display: flex;
@@ -9,6 +12,17 @@
   justify-content: center;
   background-size: cover;
 }
+
+.banner-content {
+  padding: 20px;
+  display: flex;
+  justify-content: flex-start;
+  h4 {
+    margin: auto 6px;
+
+  }
+}
+
 .banner h1 {
   font-size: 50px;
   font-weight: bold;
@@ -20,4 +34,24 @@
   color: rgb(255, 255, 255);
   opacity: 0.6;
   margin-bottom: 30px;
+}
+
+.description-text {
+  font-size: 16px;
+  list-style: none;
+  color: rgba(0, 0, 0, 0.7);
+  h2 {
+    font-size: 20px;
+    color: #b3b3b3;
+    text-align: left;
+  }
+  .spec-icon {
+    margin-right: 8px;
+    color: #b3b3b3;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0px;
+  }
 }
