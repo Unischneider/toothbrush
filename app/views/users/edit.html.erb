@@ -1,2 +1,6 @@
 <h1>Users#edit</h1>
 <p>Find me in app/views/users/edit.html.erb</p>
+   <%= f.input :first_name, placeholder: "Tuan" %>
+    <%= f.input :last_name, placeholder: "Perera"  %>
+    <%= f.input :gender, collection: ["Female", "Male", "Other"]  %>
+    <%= f.input :address, placeholder: "Simon-dachstrasse 50" %>
