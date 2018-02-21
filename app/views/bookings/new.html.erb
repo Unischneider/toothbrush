@@ -12,7 +12,7 @@
           <li>Brush-Strength: <%= @toothbrush.brush_strength %></li>
           <li>Used:           <%= @toothbrush.people %></li>
           <br>
-          <li>Price: <%= @toothbrush.price %></li>
+          <li><strong>Price: <%= @toothbrush.price %></strong></li>
         </ol>
       </div>
 
@@ -21,6 +21,15 @@
           <p>
           When would you like to have it?
           </p>
+          <br>
+          <h3 class="text-center">Choose your Dates</h3>
+          <div class="label">
+            <%= simple_form_for :booking do |f| %>
+            <%= f.input :starting_on, placeholder: "dd/mm/yyyy"%>
+            <%= f.input :ending_on, placeholder: "dd/mm/yyyy"%>
+            <%= f.submit "Ask For Your New Toothbrush", class: "btn btn-primary" %>
+            <% end %>
+          </div>
         <% else %>
           <p>
           Sadly this item is not available!
@@ -29,15 +38,6 @@
         <% end %>
       </div>
 
-      <br>
-      <h3 class="text-center">Choose your Dates</h3>
-      <div class="label">
-        <%= simple_form_for [@toothbrush] do |f| %>
-          <%= f.input :starting_date %>
-          <%= f.input :ending_date %>
-          <%= f.submit "Ask For Your New Toothbrush", class: "btn btn-primary" %>
-        <% end %>
-      </div>
       <br>
       <%= link_to "Get Back", toothbrushes_path, class: "btn btn-primary" %>
     </div>

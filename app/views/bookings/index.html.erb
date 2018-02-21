@@ -10,7 +10,7 @@
 
     <% @bookings.each do |booking| %>
     <% if booking.starting_on > Date.today %>
-    <% if booking.status == "Pending host validation" %>
+    <% if booking.status == "Pending owner validation" %>
     <li class="dashboard">
       <%= image_tag(booking.toothbrush.photo) %>
       <div class='product-body'>
@@ -63,7 +63,7 @@
       </div>
       <div>
         <ul class="list-unstyled hidden-sm hidden-xs padded">
-          <li><p><%= booking.toothrbush.user.first_name%> canceled your rental </p></li>
+          <li><p><%= booking.toothbrush.user.first_name%> canceled your rental </p></li>
         </ul>
       </div>
     </li>
@@ -96,26 +96,25 @@
         <p>Total price: <strong><%= booking.total_price %> €</strong></p>
       </div>
       <div>
-        <% @reviews.each do |review| %>
-        <% if review.booking_id = booking.id %>
-        <div class="text-center">
-          <div class="review-coment">
-           <% review.rating.times do %>
-           <i class="fa fa-star" aria-hidden="true" ></i>
-           <% end %>
-           <% (5- review.rating).times do %>
-           <i class="fa fa-star-o" aria-hidden="true"></i>
-           <% end %>
-           <p> <%= review.content %> </p>
-         </div>
-       </div>
-       <%  else %>
-       <div class="text-center review">
-         <h3 class="text-center">Leave a review?</h3>
-         <%= render 'reviews/form', booking: booking, review: @review %>
-       </div>
-       <% end %>
-       <% end %>
+        <% booking.reviews.each do |review| %>
+          <div class="text-center">
+            <div class="review-coment">
+              <% review.rating.times do %>
+                <i class="fa fa-star" aria-hidden="true" ></i>
+              <% end %>
+              <% (5- review.rating).times do %>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+              <% end %>
+              <p> <%= review.content %> </p>
+            </div>
+          </div>
+        <% end %>
+        <% if booking.reviews == [] %>
+          <div class="text-center review">
+            <h3 class="text-center">Leave a review?</h3>
+            <% # render 'reviews/form', booking: booking, review: @review %>
+          </div>
+        <% end %>
      </div>
    </li>
    <% end %>
