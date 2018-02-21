@@ -1,0 +1,30 @@
+// .info > h4 {
+//   text-align: center;
+// }
+
+// .photo-container {
+//   width: 80px;
+//   height: 80px;
+// }
+
+.photo img {
+  width: 300px;
+}
+
+.centering {
+  text-align: center;
+  h1 {
+    padding: 10px;
+  }
+  .photo{
+    padding: 20px
+  }
+}
+
+.centering-container {
+  background-color: white;
+  border-radius: 10px;
+  width: 500px;
+  text-align: center;
+  margin: 0 auto;
+}
