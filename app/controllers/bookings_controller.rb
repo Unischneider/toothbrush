@@ -1,15 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :update, :destroy]
 
-  def new
-    @toothbrush = Toothbrush.find(params[:toothbrush_id])
-    @booking = Booking.new(booking_params)
-    @booking.toothbrush = @toothbrush
-    @booking.user = current_user
-    @booking.status = "Pending host validation"
-
-  end
-
   def index
     @bookings = Booking.where(user_id: current_user.id)
     @reviews = Review.all
@@ -21,6 +12,30 @@ class BookingsController < ApplicationController
     @toothbrush = @booking.toothbrush
   end
 
+  def new
+    @toothbrush = Toothbrush.find(params[:toothbrush_id])
+    @booking = Booking.new(user: current_user, toothbrush: @toothbrush)
+    # user -> current_user
+    # toothbrush -> Toothbrush.find(params[:toothbrush_id])
+    authorize @booking
+    authorize @toothbrush
+  end
+
+  def create
+    @toothbrush = Toothbrush.find(params[:toothbrush_id])
+    @booking = Booking.new(booking_params)
+    @booking.toothbrush = @toothbrush
+    @booking.user = current_user
+    @booking.status = "Pending owner validation"
+    total_price
+    authorize @booking
+    if @booking.save
+      redirect_to toothbrush_booking_path(@toothbrush, @booking)
+    else
+      render :new
+    end
+  end
+
   def update
     @booking.status = "Pending host validation"
     @booking.save!
@@ -29,7 +44,7 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
-    redirect_to root_path
+    redirect_to bookings_path
   end
 
   private

@@ -24,7 +24,10 @@
       <div>
         <ul class="list-unstyled hidden-sm hidden-xs padded">
           <li><strong>Wait for the owner to confirm. Stay tuned !</strong></li>
-          <li class="text-right"><%= link_to "Delete this rental", booking_path(booking), method: :delete, class:"btn btn-default", data: {confirm: "Are you sure?"} %></li>
+          <li class="text-right">
+            <%= link_to "Delete this rental", toothbrush_booking_path(booking.toothbrush, booking), method: :delete, class:"btn btn-default", data: {confirm: "Are you sure?"} %>
+
+            </li>
         </ul>
       </div>
     </li>
@@ -44,7 +47,8 @@
       <div>
         <ul class="list-unstyled hidden-sm hidden-xs padded">
           <li><strong>Your rental is confirmed !</strong></li>
-          <li class="text-right"><%= link_to "Delete this rental", booking_path(booking), method: :delete, class:"btn btn-default", data: {confirm: "Are you sure?"} %> </li>
+          <li class="text-right">
+            <%= link_to "Delete this rental", toothbrush_booking_path(booking.toothbrush, booking), method: :delete, class:"btn btn-default", data: {confirm: "Are you sure?"} %> </li>
         </ul>
       </div>
     </li>
