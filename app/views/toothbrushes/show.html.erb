@@ -8,21 +8,25 @@
     <div class="banner" style="background-image: url('<%= cl_image_path @toothbrush.photo, crop: :fill %>');">
     </div>
     <div class="your-brush-options text-center">
-      <% if policy(@toothbrush).edit? %>
-      <h2>This is your brush</h2>
-      <div class="btn btn-custom text-center">
-        <%= link_to "Edit", edit_toothbrush_path(@toothbrush) %>
-      </div>
-      <% end %>
-      <% if policy(@toothbrush).destroy? %>
-      <div class="btn btn-custom text-center">
-        <%= link_to "Delete", toothbrush_path, method: :delete %>
-      </div>
+      <% if user_signed_in? %>
+        <% if policy(@toothbrush).edit? %>
+          <h2>This is your brush</h2>
+          <div class="btn btn-custom text-center">
+            <%= link_to "Edit", edit_toothbrush_path(@toothbrush) %>
+          </div>
+          <div class="btn btn-custom text-center">
+            <%= link_to "Delete", toothbrush_path, method: :delete %>
+          </div>
+        <% else %>
+          <h2>Do you want to rent it?</h2>
+          <div class="btn btn-custom text-center">
+            <%= link_to "Rent", new_booking_path %>
+          </div>
+        <% end %>
       <% else %>
-      <h2>Is this your brush?</h2>
-      <div class="btn btn-custom text-center">
-        <%= link_to "log in to edit" , new_user_session_path %>
-      </div>
+          <div class="btn btn-custom text-center">
+            <%= link_to "Log in to edit" , new_user_session_path %>
+          </div>
       <% end %>
     </div>
   </div>
