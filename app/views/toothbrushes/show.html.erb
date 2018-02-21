@@ -1,40 +1,71 @@
 
-<div class="banner" style="background-image: url('<%= cl_image_path @toothbrush.photo, crop: :fill %>');">
-  <div class="banner-content">
-    <h1><%= @toothbrush.name %></h1>
-  </div>
-</div>
 <div class="container">
   <div class="row">
-    <div class="col-xs-8 col-xs-offset-2">
-      <h4>
-        <%= @toothbrush.description %>
-      </h4>
+   <div class="banner-content">
+    <h1 class="text-center"><%= @toothbrush.name %></h1>
+  </div>
+  <div class="col-xs-6">
+    <div class="banner" style="background-image: url('<%= cl_image_path @toothbrush.photo, crop: :fill %>');">
+    </div>
+    <div class="your-brush-options text-center">
+      <% if policy(@toothbrush).edit? %>
+      <h2>This is your brush</h2>
+      <div class="btn btn-custom text-center">
+        <%= link_to "Edit", edit_toothbrush_path(@toothbrush) %>
+      </div>
+      <% end %>
+      <% if policy(@toothbrush).destroy? %>
+      <div class="btn btn-custom text-center">
+        <%= link_to "Delete", toothbrush_path, method: :delete %>
+      </div>
+      <% else %>
+      <h2>Is this your brush?</h2>
+      <div class="btn btn-custom text-center">
+        <%= link_to "log in to edit" , new_user_session_path %>
+      </div>
+      <% end %>
     </div>
   </div>
-  <div class="row">
-    <div class="col-xs-5">
-      <h2>
-        Information about the toothbrush
-      </h2>
-      <ul>
-        <li>
-          Age of the toothbrush <strong> <%= @toothbrush.age %></strong>
-        </li>
-        <li>
-          Amount of different people that used the toothbrush
-          <strong> <%= @toothbrush.people %></strong>
-        </li>
-        <li>
-          Material: <strong> <%= @toothbrush.material %></strong>
-        </li>
-        <li>
-          Brush-strength: <strong> <%= @toothbrush.brush_strength %></strong>
-        </li>
-      </ul>
 
+  <div class="description-text col-xs-6">
+    <div class="availability">
+      <div class="price-availability">
+        <h4>Available: <% if @toothbrush.availability %>
+          <i class="available-icon fas fa-check-circle"></i>
+          <% else %>
+          <i class="unavailable-icon fas fa-times-circle"></i>
+          <% end %>
+        </h4>
+      </div>
+      <h4>Price: <strong> <%= @toothbrush.price %> $ </strong></h4>
     </div>
-    <div class="col-xs-5 col-xs-offset-2">
+    <h2>About this brush</h2>
+    <p><%= @toothbrush.description %></p>
+
+    <h2>Specs</h2>
+    <div class="row">
+      <div class="spec-list col-xs-9">
+        <ul>
+          <div class="col-xs-6">
+            <li>
+              <i class="spec-icon fas fa-calendar-check"></i>Age: <strong> <%= @toothbrush.age %></strong>
+            </li>
+            <li>
+              <i class="spec-icon fas fa-users"></i>Uses: <strong> <%= @toothbrush.people %></strong>
+            </li>
+          </div>
+          <div class="col-xs-6">
+            <li>
+              <i class="spec-icon fas fa-certificate"></i>Material: <strong> <%= @toothbrush.material %></strong>
+            </li>
+            <li>
+              <i class="spec-icon fas fa-quidditch"></i>Brush-strength: <strong> <%= @toothbrush.brush_strength %></strong>
+            </li>
+          </div>
+        </ul>
+      </div>
+    </div>
+    <div>
       <h2>
         Information about the owner
       </h2>
@@ -51,19 +82,6 @@
       </ul>
     </div>
   </div>
-  <div class="row">
-    <div class="col-xs-8 col-xs-offset-2 text-center">
-      <h4> Available: <%= @toothbrush.availability %> Price: <strong> <%= @toothbrush.price %> $ </strong></h4>
-        <% if policy(@toothbrush).edit? %>
-          <div class="btn btn-custom text-center">
-            <%= link_to "Edit", edit_toothbrush_path(@toothbrush) %>
-          </div>
-        <% end %>
-        <% if policy(@toothbrush).destroy? %>
-          <div class="btn btn-custom text-center">
-            <%= link_to "Delete", toothbrush_path, method: :delete %>
-          </div>
-        <% end %>
-    </div>
-  </div>
 </div>
+</div>
+
