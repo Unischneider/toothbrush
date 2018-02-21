@@ -34,9 +34,9 @@
       <br>
       <h3 class="text-center">Choose your Dates</h3>
       <div class="label">
-        <%= simple_form_for [@toothbrush] do |f| %>
-          <%= f.input :starting_date %>
-          <%= f.input :ending_date %>
+        <%= simple_form_for [@toothbrush, @booking] do |f| %>
+          <%= f.input :starting_on %>
+          <%= f.input :ending_on %>
           <%= f.submit "Ask For Your New Toothbrush", class: "btn btn-primary" %>
         <% end %>
       </div>

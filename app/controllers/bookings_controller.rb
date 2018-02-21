@@ -2,7 +2,7 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :update, :destroy]
 
   def index
-    @bookings = Booking.where(user_id: current_user.id)
+    @bookings = policy_scope(Booking)
     @reviews = Review.all
     @review = Review.new
   end
@@ -10,6 +10,8 @@ class BookingsController < ApplicationController
   def show
     total_price
     @toothbrush = @booking.toothbrush
+    authorize @booking
+    authorize @toothbrush
   end
 
   def new
