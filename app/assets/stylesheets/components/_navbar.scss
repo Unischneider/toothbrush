@@ -101,4 +101,12 @@
 
 .search-box {
   width: 25%;
+  display: flex;
+  .icon {
+    color: #2a5e9c;
+    margin: 10px 14px 0px 0px;
+  }
+  .form-control {
+    border-radius: 50px;
+  }
 }
