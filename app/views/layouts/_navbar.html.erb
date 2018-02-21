@@ -1,6 +1,7 @@
 <div class="navbar-wagon">
   <!-- Logo -->
   <div class="search-box">
+    <i class="icon fas fa-search"></i>
         <%= form_tag toothbrushes_path, method: :get do %>
           <%= text_field_tag :query,
             params[:query],
@@ -15,10 +16,6 @@
   </a>
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Rent</a>
-    <a href="" class="navbar-wagon-item navbar-wagon-link">About</a>
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Reviews</a>
 
     <!-- Profile picture with dropdown list -->
     <div class="navbar-wagon-item">
