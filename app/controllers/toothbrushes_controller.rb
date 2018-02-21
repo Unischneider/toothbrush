@@ -7,6 +7,11 @@ class ToothbrushesController < ApplicationController
 
   def index
     @toothbrushes = policy_scope(Toothbrush)
+    if params[:query].present?
+      @toothbrushes = Toothbrush.where(material: params[:query])
+    else
+      @toothbrushes = Toothbrush.all
+    end
   end
 
   def new
