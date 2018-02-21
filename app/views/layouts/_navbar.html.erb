@@ -1,9 +1,18 @@
 <div class="navbar-wagon">
   <!-- Logo -->
+  <div class="search-box">
+        <%= form_tag toothbrushes_path, method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "What material should th toothbrush have?"
+          %>
+        <% end %>
+      </div>
+
   <a href="/" class="navbar-wagon-brand">
     <img src="<%= asset_path("logo.png")%>" alt="">
   </a>
-
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
