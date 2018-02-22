@@ -9,7 +9,7 @@
   <ul class="list-unstyled">
 
     <% @bookings.each do |booking| %>
-    <% if booking.starting_on >= Date.today %>
+    <% if booking.starting_on > Date.today %>
     <% if booking.status == "Pending owner validation" %>
     <li class="dashboard">
       <%= image_tag(booking.toothbrush.photo) %>
@@ -27,7 +27,7 @@
         <ul class="list-unstyled hidden-sm hidden-xs padded">
           <li><strong>Wait for the owner to confirm. Stay tuned !</strong></li>
           <li class="text-right">
-            <%= link_to "Delete this rental", toothbrush_booking_path(booking.toothbrush, booking), method: :delete, class:"btn btn-default", data: {confirm: "Are you sure?"} %>
+            <%= link_to "Delete this rental", booking_path(booking), method: :delete, class:"btn btn-default", data: {confirm: "Are you sure?"} %>
 
             </li>
         </ul>
@@ -52,7 +52,7 @@
         <ul class="list-unstyled hidden-sm hidden-xs padded">
           <li><strong>Your rental is confirmed !</strong></li>
           <li class="text-right">
-            <%= link_to "Delete this rental", toothbrush_booking_path(booking.toothbrush, booking), method: :delete, class:"btn btn-default", data: {confirm: "Are you sure?"} %> </li>
+            <%= link_to "Delete this rental", booking_path(booking), method: :delete, class:"btn btn-default", data: {confirm: "Are you sure?"} %> </li>
         </ul>
       </div>
     </li>
@@ -93,50 +93,45 @@
 <div class="wrapper-dashboard">
   <ul class="list-unstyled">
     <% @bookings.each do |booking| %>
-    <% if booking.starting_on <= Date.today %>
-    <% if booking.status == "Confirmed" %>
-    <li class="dashboard">
-      <%= image_tag(booking.toothbrush.photo) %>
-      <div class='product-body'>
-        <h2><%= booking.toothbrush.name %></h2>
-        <h4><%= booking.toothbrush.description %></h4>
-        <p>Age: <strong><%= booking.toothbrush.age %></strong></p>
-        <p>Material: <strong><%= booking.toothbrush.material %></strong></p>
-        <p>Brush-Strength: <strong><%= booking.toothbrush.brush_strength %></strong></p>
-        <p>Price: <strong><%= booking.toothbrush.price %></strong></p>
-        <p>Dates: From <strong><%=booking.starting_on%></strong> to <strong><%=booking.ending_on%></strong>
-        <p>Total price: <strong><%= booking.total_price %> €</strong></p>
-      </div>
-      <div>
-        <% @reviews.each do |review| %>
-        <% if review.booking_id = booking.id %>
-        <div class="text-center">
-          <div class="review-coment">
-           <% review.rating.times do %>
-           <i class="fa fa-star" aria-hidden="true" ></i>
-           <% end %>
-           <% (5- review.rating).times do %>
-           <i class="fa fa-star-o" aria-hidden="true"></i>
-           <% end %>
-           <p> <%= review.content %> </p>
-         </div>
-       </div>
-       <%  else %>
-       <div class="text-center review">
-         <h3 class="text-center">Leave a review?</h3>
-         <%= render 'reviews/form', booking: booking, review: @review %>
-       </div>
-       <% end %>
-       <% end %>
-     </div>
-   </li>
-   <% end %>
-
-
-   <% end %>
-
-   <% end %>
- </ul>
+      <% if booking.starting_on <= Date.today %>
+        <% if booking.status == "Confirmed" %>
+          <li class="dashboard">
+          <%= image_tag(booking.toothbrush.photo) %>
+          <div class='product-body'>
+            <h2><%= booking.toothbrush.name %></h2>
+            <h4><%= booking.toothbrush.description %></h4>
+            <p>Age: <strong><%= booking.toothbrush.age %></strong></p>
+            <p>Material: <strong><%= booking.toothbrush.material %></strong></p>
+            <p>Brush-Strength: <strong><%= booking.toothbrush.brush_strength %></strong></p>
+            <p>Price: <strong><%= booking.toothbrush.price %></strong></p>
+            <p>Dates: From <strong><%=booking.starting_on%></strong> to <strong><%=booking.ending_on%></strong>
+            <p>Total-Price: <strong><%= booking.total_price %> €</strong></p>
+          </div>
+          <div>
+            <% @reviews.each do |review| %>
+              <% if review.booking_id = booking.id %>
+              <div class="text-center">
+                <div class="review-coment">
+                  <% review.rating.times do %>
+                    <i class="fa fa-star" aria-hidden="true" ></i>
+                  <% end %>
+                  <% (5- review.rating).times do %>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                  <% end %>
+                  <p> <%= review.content %> </p>
+                </div>
+              </div>
+              <%  else %>
+              <div class="text-center review">
+                <h3 class="text-center">Leave a review?</h3>
+                <% render 'reviews/form', booking: booking, review: @review %>
+              </div>
+              <% end %>
+            <% end %>
+          </div>
+          </li>
+        <% end %>
+      <% end %>
+    <% end %>
+  </ul>
 </div>
-
-
