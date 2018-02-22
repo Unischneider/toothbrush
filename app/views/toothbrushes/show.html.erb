@@ -1,4 +1,5 @@
 
+    <%= render "bookings/new" %>
 <div class="container">
   <div class="row">
    <div class="banner-content">
@@ -19,8 +20,9 @@
           </div>
         <% end %>
       <% else %>
-        <div class="btn btn-custom text-center">
-          <%= link_to "Log in to edit" , new_user_session_path %>
+        <div class="text-center">
+           <h2>Are you a member?</h2>
+          <%= link_to "Log in to edit" , new_user_session_path, class: "btn btn-custom" %>
         </div>
       <% end %>
     </div>
