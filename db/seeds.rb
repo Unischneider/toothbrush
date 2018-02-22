@@ -60,10 +60,9 @@ end
 
 10.times do
   Review.create(
-    toothbrush: Toothbrush.all.sample,
-    user: User.all.sample,
+    booking_id: Booking.all.sample.id,
     content: Faker::Lorem.paragraph,
-    rating: (1..10).to_a.sample
+    rating: (1..5).to_a.sample
     )
 end
 

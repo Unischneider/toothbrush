@@ -1,18 +1,25 @@
-<% @review.each do |review| %>
+<% @reviews.each do |review| %>
 <div class="review">
   <div class="review-name">
   <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
   <div class="review-name-text">
-    <h3><%= review.user.first_name %></h3>
-    <p><%= review.user.last_name %></p>
+    <h3><%= review.booking.user.first_name %></h3>
+    <p><%= review.booking.user.last_name %></p>
   </div>
   </div>
   <div class="review-body">
-    <p><strong> <%= link_to review.toothbrush.name, toothbrush_path(review.toothbrush.id) %> - <%= review.toothbrush.material %></strong></p>
+    <p><strong> <%= link_to review.booking.toothbrush.name, toothbrush_path(review.booking.toothbrush.id) %> - <%= review.booking.toothbrush.material %></strong></p>
     <p>
       <%= review.content %>
     </p>
+    <% review.rating.times do %>
+      <i class="fas fa-star" aria-hidden="true" ></i>
+    <% end %>
+    <% (5- review.rating).times do %>
+      <i class="far fa-star" aria-hidden="true"></i>
+    <% end %>
   </div>
 
 </div>
 <% end %>
+

@@ -2,10 +2,13 @@ class ReviewsController < ApplicationController
     before_action :set_booking, only: [:new, :create]
   def new
     @review = Review.new
+    authorize @review
+
   end
 
   def create
     @review = Review.new(review_params)
+    authorize @review
     @review.booking = @booking
     @review.save
     redirect_to bookings_path
