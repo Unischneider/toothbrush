@@ -1,8 +1,9 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
   def home
-    @toothbrushes = Toothbrush.all.first(4)
-    @review = Review.all.first(3)
+
+    @toothbrushes = Toothbrush.all.first(6)
+    @reviews = Review.all.first(3)
 
     @user = User.where.not(latitude: nil, longitude: nil)
 
