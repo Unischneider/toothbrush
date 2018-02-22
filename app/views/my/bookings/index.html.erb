@@ -6,13 +6,13 @@
 <div class="wrapper-dashboard">
 
   <ul class="list-unstyled">
-    <% @toothbrushes.each do |bed| %>
+    <% @toothbrushes.each do |toothbrush| %>
 
     <% toothbrush.bookings.each do |booking| %>
     <li class="padded dashboard">
 
 
-      <% if booking.status == "Pending host validation" %>
+      <% if booking.status == "Pending owner validation" %>
       <%= image_tag(booking.user.photo.path) %>
 
       <div class='product-body'>

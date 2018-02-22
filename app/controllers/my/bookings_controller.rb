@@ -1,5 +1,6 @@
 class My::BookingsController < ApplicationController
   def index
+    @bookings = policy_scope(Booking)
     @toothbrushes = current_user.toothbrushes
   end
 
@@ -8,7 +9,6 @@ class My::BookingsController < ApplicationController
     @booking.update(set_params)
     redirect_to my_bookings_path
   end
-
 
   private
 

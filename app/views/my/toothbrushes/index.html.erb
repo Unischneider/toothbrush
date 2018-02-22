@@ -5,14 +5,14 @@
 
 <div class="wrapper-dashboard padded">
   <ul class="list-unstyled">
-    <% @toothbrushes.each do |bed| %>
+    <% @toothbrushes.each do |toothbrush| %>
     <li class="padded dashboard">
-      <%= image_tag(toothbrush.photo.path) %>
+      <%= cl_image_tag(toothbrush.photo, width: 400, height: 300, crop: :fill) %>
 
       <div class='product-body'>
 
         <h2><strong><%= toothbrush.name %></strong></h2>
-        <h4>Available: <% if @toothbrush.availability %>
+        <h4>Available: <% if toothbrush.availability %>
           <i class="available-icon fas fa-check-circle"></i>
           <% else %>
           <i class="unavailable-icon fas fa-times-circle"></i>

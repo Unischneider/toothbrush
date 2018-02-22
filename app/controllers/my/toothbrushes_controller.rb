@@ -1,5 +1,5 @@
-class My::BedsController < ApplicationController
+class My::ToothbrushesController < ApplicationController
   def index
-    @toothbrushes = current_user.toothbrushes
+    @toothbrushes = policy_scope(Toothbrush).where(user: current_user)
   end
 end
