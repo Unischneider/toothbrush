@@ -1,51 +1,54 @@
-<h1 class="text-center">Booking Confirmation</h1>
+
 <div class="container">
+  <h1 class="text-center">Booking Confirmation</h1>
   <div class="row">
-    <div class="text-center">
-      <% if @booking.status == "Pending Owner validation"%>
-      <h3>  <strong><i class="fa fa-star" aria-hidden="true"></i> We are waiting for <%= @booking.toothbrush.user.first_name %> to confirm your request </strong> <i class="fa fa-star" aria-hidden="true"></i></h3>
-      <h3> So... stay tuned! </h3>
-      <% end %>
-      <hr>
+    <div class="col-md-6">
+      <div class="banner" style="background-image: url('<%= cl_image_path @booking.toothbrush.photo, crop: :fill %>');">
+      </div>
+    </div>
 
-        <div class="row">
-          <div class="col-md-6">
-            <%=  cl_image_tag @booking.toothbrush.photo %>
-          </div>
-          <div class="col-md-6">
-              <div class="text-left">
-              <h4> Reminder of your <strong id="red-word">rental details</strong></h4>
-              <br>
-                <table>
-                 <tbody>
-                    <tr>
-                      <td> <h4><i class="fa fa-heart" aria-hidden="true"></i> </h4></td>
-                      <td><h4> &nbsp; The owner is <strong> <%= @booking.toothbrush.user.first_name %> </strong></h4></td>
-                    </tr>
-                    <tr>
-                      <td><h4> <i class="fa fa-bed" aria-hidden="true"></i></h4></td>
-                      <td><h4> &nbsp; You asked to have a nice toothbrush from: <br>  &nbsp;   <%= @booking.starting_on %> to <%= @booking.ending_on %> </h4></td>
-                    </tr>
-                    <tr>
-                      <td><h4> <i class="fa fa-thumbs-up" aria-hidden="true"></i></h4></td>
-                      <td><h4> &nbsp; The total price for your rental is <%= @booking.total_price %> €</h4></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-          </div>
-        </div>
-
-
-      <% if @booking.status == "Pending renting request"%>
-      <%= simple_form_for(@booking) do |f| %>
-      <%= f.submit "Confirm my rental", class: "btn btn-danger btn-lg" %>
-      <% end %>
-      <% end %>
-      <hr>
-    <%= link_to "See All My Rentals", bookings_path, class:"btn btn-default btn-lg " %>
+    <div class="col-md-6">
+      <div class="text-center">
+        <% if @booking.status == "Pending Owner validation"%>
+        <h3>  <strong><i class="fa fa-star" aria-hidden="true"></i> We are waiting for <%= @booking.toothbrush.user.first_name %> to confirm your request </strong> <i class="fa fa-star" aria-hidden="true"></i></h3>
+        <h3> So... stay tuned! </h3>
+        <% end %>
+        <hr>
+      </div>
+      <div class="text-left">
+        <h4> Reminder of your <strong id="red-word">rental details</strong></h4>
+        <br>
+        <table>
+         <tbody>
+          <tr>
+            <td> <h4><i class="fa fa-heart" aria-hidden="true"></i> </h4></td>
+            <td><h4> &nbsp; The owner is <strong> <%= @booking.toothbrush.user.first_name %> </strong></h4></td>
+          </tr>
+          <tr>
+            <td><h4> <i class="fa fa-bed" aria-hidden="true"></i></h4></td>
+            <td><h4> &nbsp; You asked to have a nice toothbrush from: <br>  &nbsp;   <%= @booking.starting_on %> to <%= @booking.ending_on %> </h4></td>
+          </tr>
+          <tr>
+            <td><h4> <i class="fa fa-thumbs-up" aria-hidden="true"></i></h4></td>
+            <td><h4> &nbsp; The total price for your rental is <%= @booking.total_price %> €</h4></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
+</div>
+
+
+<% if @booking.status == "Pending renting request"%>
+<%= simple_form_for(@booking) do |f| %>
+<%= f.submit "Confirm my rental", class: "btn btn-danger btn-lg" %>
+<% end %>
+<% end %>
+<hr>
+<div class="text-center">
+<%= link_to "See All My Rentals", bookings_path, class:"btn btn-custom" %></div>
+</div>
+</div>
 </div>
 </div>
 
