@@ -33,8 +33,8 @@
         </div>
           <% if current_user.photo.file.nil? %>
             <%= cl_image_tag"qzmh948aubfmyztoffra", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", data:{toggle: "dropdown"}%>
-          <% else %
-            <%= cl_image_path current_user.photo, class: "avatar dropdown-toggle", id:"navbar-wagon-menu", data:{toggle:"dropdown"}%>
+          <% else %>
+            <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", data:{toggle:"dropdown"} %>
           <% end %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
 

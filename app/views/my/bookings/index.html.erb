@@ -1,4 +1,6 @@
+
 <div class="booking-index">
+
 <div class="text-center">
   <h2> Wahou ! Your teeth are so attractive </h2>
   <h3>See who wants to rent your toothbrush !</h3>
@@ -14,7 +16,7 @@
 
 
       <% if booking.status == "Pending owner validation" %>
-      <%= image_tag(booking.user.photo.path) %>
+      <%= cl_image_tag(booking.user.photo) %>
 
       <div class='product-body'>
 
@@ -30,7 +32,7 @@
       </ul>
 
       <% elsif booking.status == "Confirmed" %>
-      <%= image_tag(booking.user.photo.path) %>
+      <%= cl_image_tag(booking.user.photo) %>
 
       <div class='product-body'>
         <h3 class="congrat-text"> Congrats ! <%= booking.user.first_name %> is renting your toothbrush ! </h3>
