@@ -1,11 +1,13 @@
 <% @toothbrushes.each do |toothbrush| %>
-        <div class="col-xs-12 <%=  'col-sm-6' if params[:action] == "home" %> <%= 'col-sm-4' if params[:action] == "index" %>">
-          <div class="card" style="background-image: linear-gradient(-225deg, rgba(55, 155, 255, 0.6) 0%, rgba(0, 36, 61, 0) 50%), url('<%= cl_image_path toothbrush.photo %>');">
-            <div class="card-category"><%= toothbrush.material %></div>
-            <div class="card-description">
-              <h2><%= link_to toothbrush.name, toothbrush_path(toothbrush.id) %></h2>
-              <p><%= toothbrush.price %> EUROS</p>
-            </div>
-          </div>
+  <% if toothbrush.availability %>
+    <div class="col-xs-12 <%=  'col-sm-6' if params[:action] == "home" %> <%= 'col-sm-4' if params[:action] == "index" %>">
+      <div class="card" style="background-image: linear-gradient(-225deg, rgba(55, 155, 255, 0.6) 0%, rgba(0, 36, 61, 0) 50%), url('<%= cl_image_path toothbrush.photo %>');">
+        <div class="card-category"><%= toothbrush.material %></div>
+        <div class="card-description">
+          <h2><%= link_to toothbrush.name, toothbrush_path(toothbrush.id) %></h2>
+          <p><%= toothbrush.price %> EUROS</p>
         </div>
-        <% end %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
