@@ -1,39 +1,42 @@
+
 <div class="text-center">
   <h2>Here are all the <strong id="red-word">toothbrushes</strong> you are sharing!</h2>
 </div>
+<% @toothbrushes.each do |toothbrush| %>
 
-
-<div class="wrapper-dashboard padded">
-  <ul class="list-unstyled">
-    <% @toothbrushes.each do |toothbrush| %>
-    <li class="padded dashboard">
-      <%= cl_image_tag(toothbrush.photo, width: 400, height: 300, crop: :fill) %>
-
-      <div class='product-body'>
-
-        <h2><strong><%= toothbrush.name %></strong></h2>
-        <h4>Available: <% if toothbrush.availability %>
-          <i class="available-icon fas fa-check-circle"></i>
-          <% else %>
-          <i class="unavailable-icon fas fa-times-circle"></i>
-          <% end %>
-        </h4>
-        <br>
-        <h4>Age: <strong><%= toothbrush.age %></strong></h4>
-        <h4>Rented out: <strong><%= toothbrush.uses %></strong></h4>
-        <h4>Material: <strong><%= toothbrush.material %></strong></h4>
-        <h4>Brush-Strength: <strong><%= toothbrush.brush_strength %></strong></h4>
-        <h4>Description: <%=toothbrush.description%></h4>
-        <br>
-        <h4>Price: <strong><%= toothbrush.price %>€/day </strong></h4>
+<div class="product">
+  <div class='product-upvote'>
+    <div class="product-arrow"></div>
+    <div class='product-count'><%= toothbrush.uses %></div>
+  </div>
+  <%= cl_image_tag toothbrush.photo, crop: :fill, class: "product-image hidden-xs"  %>
+  <div class='product-body'>
+    <h3><%= toothbrush.name %></h3>
+    <p><%= toothbrush.description %></p>
+  </div>
+  <div class='product-body'>
+    <h3>Age</h3>
+    <p><%= toothbrush.age %> days</p>
+  </div>
+  <div class='product-body'>
+    <h3>People</h3>
+    <p><%= toothbrush.people %></p>
+  </div>
+  <div class='product-body'>
+    <h3>Material</h3>
+    <p><%= toothbrush.material %></p>
+  </div>
+  <ul class="list-inline product-controls hidden-sm hidden-xs">
+    <li>
+      <div class="btn btn-custom text-center">
+        <%= link_to "Edit", edit_toothbrush_path(toothbrush) %>
       </div>
-
-      <ul class="list-inline hidden-sm hidden-xs">
-        <%= link_to "Edit this toothbrush", edit_toothbrush_path(toothbrush), class:"btn btn-default-black"%>
-      </ul>
-
     </li>
-      <hr>
-      <% end %>
+    <li>
+      <div class="btn btn-custom text-center">
+        <%= link_to "Delete", toothbrush_path(toothbrush), method: :delete %>
+      </div>
+    </li>
   </ul>
 </div>
+<% end %>

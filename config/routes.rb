@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get 'about', to: 'pages#about', as: :about
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
+  get 'user_toothbrushes', to: "toothbrushes#show_toothbrushes"
   resources :toothbrushes do
     resources :bookings, only: [:new, :create]
   end

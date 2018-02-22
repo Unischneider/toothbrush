@@ -3,7 +3,9 @@ class ToothbrushesController < ApplicationController
 
   def show
     @toothbrush = Toothbrush.find(params[:id])
+    @booking = Booking.new(user: current_user, toothbrush: @toothbrush)
     authorize @toothbrush
+    authorize @booking
   end
 
   def index
