@@ -1,7 +1,7 @@
 .banner {
   color: white;
   text-align: center;
-  height: 50vh;
+  height: 70vh;
   width: 100%;
   background-position: center;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
@@ -12,6 +12,19 @@
   background-size: cover;
 }
 
+.container-rent {
+
+    background-color: #e8e8e8;
+    display: flex;
+    padding: 43px;
+    justify-content: center;
+    h2 { margin-right: 20px;
+       font-size: 20px;
+    color: #b3b3b3;
+    text-align: center;
+    }
+}
+
 .banner-content {
   padding: 20px;
   display: flex;
@@ -20,6 +33,11 @@
     margin: auto 6px;
 
   }
+}
+
+.rent-btn {
+  margin-top: 15px;
+  margin-left: 30px;
 }
 
 .banner h1 {
@@ -37,6 +55,7 @@
 
 .description-text {
   font-size: 16px;
+  margin-bottom: 110px;
   list-style: none;
   color: rgba(0, 0, 0, 0.7);
   h2 {

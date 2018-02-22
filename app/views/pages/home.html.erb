@@ -1,6 +1,6 @@
 
- <%= render "layouts/header" %>
- <div class="container">
+<%= render "layouts/header" %>
+<div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-7">
       <div class="home-intro-text-left">
@@ -18,18 +18,20 @@
       <%= render "layouts/reviews" %>
     </div>
   </div>
-  <div class="map-title">
+</div>
+</div>
+<div class="map-title">
     <h2>See where people are renting from</h2>
   </div>
+<div class="map-container">
   <div class="mapping">
     <div
-      id="map"
-      style="width: 100%;
-      height: 600px;"
-      data-markers="<%= @markers.to_json %>"
+    id="map"
+    style="width: 100%;
+    height: 400px;"
+    data-markers="<%= @markers.to_json %>"
     ></div>
   </div>
-</div>
 </div>
 </div>
 

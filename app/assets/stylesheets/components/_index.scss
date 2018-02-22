@@ -26,6 +26,12 @@
   width: 50px;
   border-radius: 50%;
 }
+
+.listing {
+  min-height: 100vh;
+  margin-bottom: 220px;
+}
+
 .avatar-bordered {
   width: 30px;
   border-radius: 50%;
@@ -64,6 +70,11 @@
   }
 }
 
+.control-label {
+  color: #b3b3b3;
+ font-weight: 100;
+ margin-bottom: 4px;
+}
 
 .title-container {
 
