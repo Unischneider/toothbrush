@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_user!
-  after_validation :geocode, if: :will_save_change_to_address?
 
   def show
     @user = current_user
