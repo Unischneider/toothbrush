@@ -9,8 +9,9 @@ class PagesController < ApplicationController
     @markers = @user.map do |user|
       {
         lat: user.latitude,
-        lng: user.longitude#,
+        lng: user.longitude,
         # infoWindow: { content: render_to_string(partial: "/toothbrush/map_box", locals: { flat: flat }) }
+        icon: ActionController::Base.helpers.image_url('pointer.png')
       }
     end
   end
