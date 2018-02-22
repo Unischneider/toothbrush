@@ -1,94 +1,51 @@
-<div class="text-center padded">
-  <h2>I rented</h2>
-</div>
+
 <div class="text-center">
-  <h4 id="red-word">these toothbrushes for events in the future</h4>
+  <h2>Here are all the <strong id="red-word">upcoming rentals</strong>!</h2>
 </div>
-
-<div class="wrapper-dashboard">
-  <ul class="list-unstyled">
-
-    <% @bookings.each do |booking| %>
-    <% if booking.starting_on >= Date.today %>
-    <% if booking.status == "Pending owner validation" %>
-    <li class="dashboard">
-      <%= image_tag(booking.toothbrush.photo) %>
-      <div class='product-body'>
-        <h2><%= booking.toothbrush.name %></h2>
-        <h4><%= booking.toothbrush.description %></h4>
-        <p>Age: <strong><%= booking.toothbrush.age %></strong></p>
-        <p>Material: <strong><%= booking.toothbrush.material %></strong></p>
-        <p>Brush-Strength: <strong><%= booking.toothbrush.brush_strength %></strong></p>
-        <p>Price: <strong><%= booking.toothbrush.price %></strong></p>
-        <p>Dates: From <strong><%=booking.starting_on%></strong> to <strong><%=booking.ending_on%></strong></p>
-        <p>Total price: <strong><%= booking.total_price %> €</strong></p>
-      </div>
-      <div>
-        <ul class="list-unstyled hidden-sm hidden-xs padded">
-          <li><strong>Wait for the owner to confirm. Stay tuned !</strong></li>
-          <li class="text-right">
-            <%= link_to "Delete this rental", booking_path(booking), method: :delete, class:"btn btn-default", data: {confirm: "Are you sure?"} %>
-          </li>
-        </ul>
-        <br>
-      </div>
-    </li>
+<% @bookings.each do |booking| %>
+  <div class="product">
+    <div class='product-upvote'>
+      <div class="product-arrow"></div>
+      <div class='product-count'><%= booking.status %></div>
+    </div>
+    <%= cl_image_tag booking.toothbrush.photo, crop: :fill, widht: 100, height: 100,  class: "product-image hidden-xs"  %>
+    <div class='product-body description'>
+      <h3><%= booking.toothbrush.name %></h3>
+      <p> <%= truncate( booking.toothbrush.description, length: 100)  %> </p>
+    </div>
+    <div class='product-body'>
+      <h3>Age</h3>
+      <p><%= booking.toothbrush.age %> days</p>
+    </div>
+    <div class='product-body'>
+      <h3>People</h3>
+      <p><%= booking.toothbrush.people %></p>
+    </div>
+    <div class='product-body'>
+      <h3>Material</h3>
+      <p><%= booking.toothbrush.material %></p>
+    </div>
+    <div class='product-body'>
+      <h3>Total price</h3>
+      <p><%= booking.total_price %></p>
+    </div>
+    <% unless booking.status == "Canceled" %>
+      <ul class="list-inline product-controls hidden-sm hidden-xs">
+        <li>
+          <div class="btn btn-custom text-center">
+            <%= link_to "Delete", booking_path(booking), method: :delete %>
+          </div>
+        </li>
+      </ul>
     <% end %>
+  </div>
+<% end %>
 
-    <% if booking.status == "Confirmed" %>
-    <li class="dashboard">
-      <%= image_tag(booking.toothbrush.photo) %>
-      <div class='product-body'>
-        <h2><%= booking.toothbrush.name %></h2>
-        <h4><%= booking.toothbrush.description %></h4>
-        <p>Age: <strong><%= booking.toothbrush.age %></strong></p>
-        <p>Material: <strong><%= booking.toothbrush.material %></strong></p>
-        <p>Brush-Strength: <strong><%= booking.toothbrush.brush_strength %></strong></p>
-        <p>Price: <strong><%= booking.toothbrush.price %></strong></p>
-        <p>Dates: From <strong><%=booking.starting_on%></strong> to <strong><%=booking.ending_on%></strong>
-        <p>Total price: <strong><%= booking.total_price %> €</strong></p>
-      </div>
-      <div>
-        <ul class="list-unstyled hidden-sm hidden-xs padded">
-          <li><strong>Your rental is confirmed !</strong></li>
-          <li class="text-right">
-            <%= link_to "Delete this rental", booking_path(booking), method: :delete, class:"btn btn-default", data: {confirm: "Are you sure?"} %></li>
-        </ul>
-        <br>
-      </div>
-    </li>
-    <% end %>
-
-    <% if booking.status == "Canceled" %>
-    <li class="dashboard">
-      <%= image_tag(booking.toothbrush.photo) %>
-      <div class='product-body'>
-        <h2><%= booking.toothbrush.name %></h2>
-        <h4><%= booking.toothbrush.description %></h4>
-        <p>Age: <strong><%= booking.toothbrush.age %></strong></p>
-        <p>Material: <strong><%= booking.toothbrush.material %></strong></p>
-        <p>Brush-Strength: <strong><%= booking.toothbrush.brush_strength %></strong></p>
-        <p>Price: <strong><%= booking.toothbrush.price %></strong></p>
-        <p>Dates: From <strong><%=booking.starting_on%></strong> to <strong><%=booking.ending_on%></strong>
-        <p>Total price: <strong><%= booking.total_price %> €</strong></p>
-      </div>
-      <div>
-        <ul class="list-unstyled hidden-sm hidden-xs padded">
-          <li><p><%= booking.toothbrush.user.first_name%> canceled your rental </p></li>
-        </ul>
-      </div>
-    </li>
-    <% end %>
-    <% end %>
-
-    <% end %>
-  </ul>
-</div>
 
 <div class="padded"></div>
 
 <div class="text-center">
-  <h4 id="red-word">these toothbrushes in the past</h4>
+  <h2>Here are all the <strong id="red-word">upcoming rentals</strong>!</h2>
 </div>
 
 <div class="wrapper-dashboard">
