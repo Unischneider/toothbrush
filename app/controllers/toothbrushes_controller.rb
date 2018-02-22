@@ -8,7 +8,12 @@ class ToothbrushesController < ApplicationController
   def index
     @toothbrushes = policy_scope(Toothbrush)
     if params[:query].present?
-      @toothbrushes = Toothbrush.where(material: params[:query])
+      sql_query = " \
+        toothbrushes.material ILIKE :query \
+        OR toothbrushes.name ILIKE :query \
+        OR toothbrushes.description ILIKE :query \
+      "
+      @toothbrushes = Toothbrush.where(sql_query, query: "%#{params[:query]}%")
     else
       @toothbrushes = Toothbrush.all
     end
