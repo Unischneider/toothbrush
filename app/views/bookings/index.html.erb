@@ -70,7 +70,6 @@
         <h3>Total price</h3>
         <p><%= booking.total_price %></p>
       </div>
-
         <% if booking.review %>
         <div class="text-center">
           <div class="review-coment">
@@ -89,7 +88,6 @@
           <%= render 'reviews/form', booking: booking, review: @review %>
         </div>
       <% end %>
-
   <% end %>
 <% end %>
 
