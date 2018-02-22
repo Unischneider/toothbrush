@@ -6,6 +6,13 @@ class UsersController < ApplicationController
     authorize @user
   end
 
+  def show_toothbrush
+
+  end
+
+  def show_bookings
+
+  end
   def edit
     @user = current_user
     authorize @user

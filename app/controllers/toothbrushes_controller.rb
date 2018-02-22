@@ -2,7 +2,9 @@ class ToothbrushesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
   def show
     @toothbrush = Toothbrush.find(params[:id])
+    @booking = Booking.new(user: current_user, toothbrush: @toothbrush)
     authorize @toothbrush
+    authorize @booking
   end
 
   def index
