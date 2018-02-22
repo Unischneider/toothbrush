@@ -95,7 +95,7 @@
   <ul class="list-unstyled">
     <% @bookings.each do |booking| %>
       <% if booking.starting_on < Date.today %>
-        <% if booking.status == "Pending owner validation" %>
+        <% if booking.status == "Confirmed" %>
           <li class="dashboard">
           <%= image_tag(booking.toothbrush.photo) %>
           <div class='product-body'>
