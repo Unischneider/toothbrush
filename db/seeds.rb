@@ -20,7 +20,9 @@ User.destroy_all
      #{Faker::Address.state}, #{Faker::Address.country}",
     gender: ["female", "male"].sample,
     email: Faker::Internet.email,
-    password: "password123"
+    password: "password123",
+    latitude: Faker::Address.latitude,
+    longitude: Faker::Address.longitude
     )
 end
 
