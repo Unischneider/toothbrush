@@ -1,17 +1,12 @@
-<h2 class="text-center">START YOUR RENTAL TODAY</h2>
-
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12">
+<div class="container-rent">
+     <h2>Your ready to rent?</h2>
       <div class="label form-inline">
         <%= simple_form_for [@toothbrush, @booking] do |f| %>
         <%= f.input :starting_on %>
         <%= f.input :ending_on %>
-        <%= f.submit "Ask For Your New Toothbrush", class: "btn btn-primary" %>
+        <%= f.submit "Rent Brush", class: "btn btn-login rent-btn" %>
         <% end %>
       </div>
-      <br>
-      <%= link_to "Get Back", toothbrushes_path, class: "btn btn-primary" %>
-    </div>
-  </div>
+
+
 </div>
