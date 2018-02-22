@@ -32,14 +32,14 @@ class BookingsController < ApplicationController
     total_price
     authorize @booking
     if @booking.save
-      redirect_to toothbrush_booking_path(@toothbrush, @booking)
+      redirect_to booking_path(@booking)
     else
       render :new
     end
   end
 
   def update
-    @booking.status = "Pending host validation"
+    @booking.status = "Pending owner validation"
     @booking.save!
     redirect_to booking_path(@booking)
   end
