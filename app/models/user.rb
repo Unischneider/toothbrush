@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many :bookings
   has_many :reviews, through: :bookings
   mount_uploader :photo, PhotoUploader
+  validates :address, presence: true
 end
