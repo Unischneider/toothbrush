@@ -38,7 +38,7 @@ end
     description: Faker::Lorem.paragraph,
     availability: [true, false].sample
     )
-  toothbrush.remote_photo_url = "http://res.cloudinary.com/dojqtqak3/image/upload/v1519139874/#{(1..14).to_a.sample}"
+  toothbrush.remote_photo_url = "http://res.cloudinary.com/dojqtqak3/image/upload/v1519139874/#{(1..34).to_a.sample}"
   toothbrush.save
 end
 
