@@ -83,6 +83,8 @@
       </div>
     </div>
   </div>
-  <%= render "bookings/new" %>
+  <% unless @toothbrush.user == current_user %>
+    <%= render "bookings/new" %>
+  <% end %>
 </div>
 

@@ -7,6 +7,7 @@ class My::BookingsController < ApplicationController
   def update
     set_booking
     @booking.update(set_params)
+    authorize @booking
     redirect_to my_bookings_path
   end
 
