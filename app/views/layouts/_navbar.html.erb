@@ -25,15 +25,17 @@
          <% if user_signed_in? %>
          <p>Hello:<strong class="email-welcome"><%= current_user.first_name %></strong></p>
         </div>
-          <% if current_user.photo %>
-            <img src=<%= cl_image_path(current_user.photo) %> class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+          <% if current_user.photo.file.nil? %>
+            <%= cl_image_tag"qzmh948aubfmyztoffra", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", data_toggle: "dropdown"%>
           <% else %>
-            <img src=<%= cl_image_path"qzmh948aubfmyztoffra" %> class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+            <img src=<%= cl_image_path(current_user.photo) %> class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+            <%= raise %>
           <% end %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
           <li><%= link_to "Update your profile", edit_user_path(current_user) %></li>
           <li><%= link_to "My Profile", user_path(current_user) %></li>
+          <li><%= link_to "My Bookings", bookings_path %></li>
           <% else %>
           <a class="btn btn-login dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
             Sign In
