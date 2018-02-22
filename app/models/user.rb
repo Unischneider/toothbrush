@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_many :toothbrushes, dependent: :destroy
   has_many :bookings, dependent: :destroy
   mount_uploader :photo, PhotoUploader
+  validates :address, presence: true
 end
