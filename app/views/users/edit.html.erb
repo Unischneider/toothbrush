@@ -1,21 +1,27 @@
+<div class="booking-index">
 <div class="container">
   <div class="row">
     <div class="col-xs-8 col-xs-offset-2">
  <div class="main-info">
-   <h1>Update your information🧐</h1>
+   <h1>Update your information</h1>
  </div>
  <div class="form">
     <%= simple_form_for @user do |f| %>
+     <div class="col-xs-6">
       <%= f.input :first_name, placeholder: "Tuan" %>
       <%= f.input :last_name, placeholder: "Perera"  %>
       <%= f.input :gender, collection: ["Female", "Male", "Other"]  %>
+    </div>
+     <div class="col-xs-6">
       <%= f.input :address, placeholder: "Simon-dachstrasse 50" %>
       <%= f.input :photo %>
       <%= f.input :photo_cache, as: :hidden %>
       <%= f.button :submit, { class: "btn btn-custom" }  %>
+    </div>
     <% end %>
     </div>
     </div>
   </div>
   <br>
+</div>
 </div>
