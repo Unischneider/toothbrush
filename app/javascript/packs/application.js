@@ -9,3 +9,6 @@
 
 console.log('Hello World from Webpacker')
 //= require autocomplete
+$('#submit-review-form').submit(function() {
+  $('#reviewModal .close').click();
+});

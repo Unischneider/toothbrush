@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-    before_action :set_booking, only: [:new, :create]
+    before_action :set_booking, only: [:new, :create, :edit, :update]
   def new
     @review = Review.new
     authorize @review
@@ -12,6 +12,21 @@ class ReviewsController < ApplicationController
     @review.booking = @booking
     @review.save
     redirect_to bookings_path
+  end
+
+  def edit
+    authorize @booking
+  end
+
+  def update
+    @review = @booking.review
+    authorize @review
+    if @review.update(review_params)
+      redirect_to bookings_path
+    else
+      render :edit
+    end
+    authorize @booking
   end
 
   private

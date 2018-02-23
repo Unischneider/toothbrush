@@ -59,7 +59,7 @@ class ToothbrushesController < ApplicationController
     @toothbrush = Toothbrush.find(params[:id])
     authorize @toothbrush
     @toothbrush.destroy
-    redirect_to toothbrushes_path
+    redirect_to my_toothbrushes_path
   end
 
   private
