@@ -1,9 +1,12 @@
 <div class="booking-index">
 <div class="text-center">
-  <h2>Here are all the <strong id="red-word">upcoming rentals</strong>!</h2>
+  <h2>Here are all your <strong id="red-word">rentals</strong>!</h2>
 </div>
 <% @bookings.each do |booking| %>
   <% if booking.starting_on > Date.today %>
+  <div class="text-center">
+    <h4>In the future</h4>
+  </div>
     <div class="product">
       <div class='product-upvote'>
         <div class="product-arrow"></div>
@@ -33,18 +36,16 @@
         <p><%= booking.total_price %></p>
       </div>
       <% unless booking.status == "Canceled" %>
-        <ul class="list-inline product-controls hidden-sm hidden-xs">
-          <li>
-            <div class="btn btn-custom text-center">
-              <%= link_to "Delete", booking_path(booking), method: :delete %>
-            </div>
-          </li>
-        </ul>
+        <div class="product-controls">
+          <div class="btn btn-custom text-center">
+            <%= link_to "Delete", booking_path(booking), method: :delete %>
+          </div>
+        </div>
       <% end %>
     </div>
   <% else %>
     <div class="text-center">
-      <h2>Here are all the <strong id="red-word">past rentals</strong>!</h2>
+      <h4>In the past:</h4>
     </div>
     <div class="product">
       <div class='product-upvote'>
@@ -74,13 +75,15 @@
         <h3>Total price</h3>
         <p><%= booking.total_price %></p>
       </div>
+      <div class="product-controls">
         <% if booking.review %>
-        <button type="button" class="btn btn-custom text-center" data-toggle="modal" data-target="#showReviewModal">See review</button>
+          <button type="button" class="btn btn-custom text-center" data-toggle="modal" data-target="#showReviewModal">See review</button>
           <%= render 'reviews/show', booking: booking %>
-      <%  else %>
-        <button type="button" class="btn btn-custom text-center" data-toggle="modal" data-target="#reviewModal">Add a review</button>
+        <%  else %>
+          <button type="button" class="btn btn-custom text-center" data-toggle="modal" data-target="#reviewModal">Add a review</button>
           <%= render 'reviews/form', booking: booking, review: @review %>
-      <% end %>
+        <% end %>
+      </div>
     </div>
   <% end %>
 <% end %>
