@@ -29,3 +29,43 @@
     margin-top: 12px;
   }
 }
+
+.btn-rent-brush {
+  color: #fff;
+  /* letter-spacing: 1px; */
+  font-weight: med;
+  text-transform: capitalize;
+  background-color: #E91E63;
+  border-color: #ea1f62;
+  border-radius: 51px;
+  width: 250px;
+  }
+.btn-rent-brush:hover {
+  color: #fff;
+  /* letter-spacing: 1px; */
+  font-weight: med;
+  transition: ease .5s;
+  background-color: #e91e639e;
+  border-color: #ea1f62;
+  border-radius: 51px;
+
+  }
+.btn-custom:hover {
+  color: #fff;
+  /* letter-spacing: 1px; */
+  font-weight: med;
+  transition: ease .5s;
+  background-color: #e91e639e;
+  border-color: #ea1f62;
+  border-radius: 51px;
+
+  }
+.btn-login:hover {
+  color: #fff;
+  /* letter-spacing: 1px; */
+  font-weight: med;
+  transition: ease .5s;
+  background-color: #e91e639e;
+  border-color: #ea1f62;
+  border-radius: 51px;
+  }
