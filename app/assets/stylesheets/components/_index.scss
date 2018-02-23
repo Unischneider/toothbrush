@@ -19,7 +19,7 @@
 }
 .new-brush {
   h2 {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     font-size: 20px;
     color: #b3b3b3;
   }
@@ -31,8 +31,16 @@
 }
 
 .listing {
+}
+
+.listing-unavailable {
   min-height: 100vh;
-  margin-bottom: 220px;
+  h2 {
+     padding-left: 4px;
+    font-size: 20px;
+    color: #b3b3b3;
+    text-align: center;
+  }
 }
 
 .avatar-bordered {

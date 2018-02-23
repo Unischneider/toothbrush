@@ -1,22 +1,27 @@
  <div class="container-bg">
    <div class="container">
      <div class="title-container">
-
       <div class="title">
         <h1>Find your dream toothbrush</h1>
-        <p>Join the crowd sourced oral higiene revolution</p>
+        <p>Join the communal hygiene revolution!</p>
       </div>
       <div class="sub-title">
-        <%= link_to "Add Your Toothbrush!", new_toothbrush_path, class: "btn btn-custom"%>
+        <%= link_to "Put your toothbrush for rent!", new_toothbrush_path, class: "btn btn-rent-brush"%>
       </div>
     </div>
   </div>
 </div>
 <div class="container">
   <div class="counter-text text-center">
-    <h2>Currently <mark class="counter-highlight"> <%= @toothbrushes.length %> </mark> toothbrushes for rent</h2>
+    <h2>Currently <mark class="counter-highlight"> <%= @toothbrushes.where(availability: true).length %> </mark> toothbrushes for rent</h2>
   </div>
   <div class="listing">
     <%= render "layouts/card" %>
+  </div>
+</div>
+<div class="container">
+  <div class="listing-unavailable">
+    <h2>Check on these later again</h2>
+    <%= render "layouts/unavailable_card" %>
   </div>
 </div>

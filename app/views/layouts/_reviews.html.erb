@@ -1,7 +1,7 @@
 <% @reviews.each do |review| %>
 <div class="review">
   <div class="review-name">
-  <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
+<%= image_tag "placeholder_user.png", class: "avatar-large" %>
   <div class="review-name-text">
     <h3><%= review.booking.user.first_name %></h3>
     <p><%= review.booking.user.last_name %></p>
