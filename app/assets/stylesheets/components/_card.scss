@@ -41,11 +41,27 @@
   font-weight: lighter;
 }
 
+.x-icon {
+
+}
+
 .card:hover {
   border-color: #E91E63;
   border: solid;
   border-width: 3px;
+    .unavailable-icon-index {
+    display: block;
+    justify-content: center;
+    font-size:  135px;
+    opacity: 0.4;
+  }
 }
+
+.unavailable-icon-index {
+  display: none;
+  text-align: center;
+}
+
 
 .card-index {
   background-color: #dedede;
