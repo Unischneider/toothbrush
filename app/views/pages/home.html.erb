@@ -1,28 +1,52 @@
 
 <%= render "layouts/header" %>
-<div class="container">
+<div class="container-icons">
   <div class="row">
-    <div class="col-xs-12 col-sm-7">
-      <div class="home-intro-text-left">
-        <h2>Check out our latest rentals</h2>
-      </div>
-      <div class="container-home-left">
-        <%= render "layouts/card" %>
-      </div>
+    <div class="icon-container">
+      <h2>How it works!</h2>
+      <div class="icons">
+      <div class="icon-info">
+       <%= image_tag "icon_a.png", class: "icon" %>
+       <h2>Find</h2>
+       <p>Eu idque decore sit, ei sea diam sint, harum temporibus has no. Ea sit consul ignota, eum nisl velit vivendum an.</p>
+     </div>
+     <div class="icon-info">
+      <%= image_tag "icon_b.png", class: "icon" %>
+      <h2>Brush</h2>
+      <p>Eu idque decore sit, ei sea diam sint, harum temporibus has no. Ea sit consul ignota, eum nisl velit vivendum an.</p>
     </div>
-    <div class="col-xs-12 col-sm-5">
-     <div class="home-intro-text-right">
-      <h2>What people think about us</h2>
-    </div>
-    <div class="container-home-right">
-      <%= render "layouts/reviews" %>
-    </div>
+    <div class="icon-info">
+     <%= image_tag "icon_c.png", class: "icon" %>
+     <h2>Enjoy</h2>
+     <p>Eu idque decore sit, ei sea diam sint, harum temporibus has no. Ea sit consul ignota, eum nisl velit vivendum an.</p>
+   </div>
+   </div>
+ </div>
+</div>
+</div>
+ <div class="container">
+  <div class="row">
+ <div class="col-xs-12 col-sm-7">
+  <div class="home-intro-text-left">
+    <h2>Check out our latest rentals</h2>
   </div>
+  <div class="container-home-left">
+    <%= render "layouts/card" %>
+  </div>
+</div>
+<div class="col-xs-12 col-sm-5">
+ <div class="home-intro-text-right">
+  <h2>What people think about us</h2>
+</div>
+<div class="container-home-right">
+  <%= render "layouts/reviews" %>
+</div>
+</div>
 </div>
 </div>
 <div class="map-title">
-    <h2>See where people are renting from</h2>
-  </div>
+  <h2>See where people are renting from</h2>
+</div>
 <div class="map-container">
   <div class="mapping">
     <div
