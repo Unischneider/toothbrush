@@ -75,17 +75,8 @@
         <p><%= booking.total_price %></p>
       </div>
         <% if booking.review %>
-        <div class="text-center">
-          <div class="review-coment">
-            <% review.rating.times do %>
-            <i class="fa fa-star" aria-hidden="true" ></i>
-            <% end %>
-            <% (5- review.rating).times do %>
-            <i class="far fa-star" aria-hidden="true"></i>
-            <% end %>
-            <p> <%= review.content %> </p>
-          </div>
-        </div>
+        <button type="button" class="btn btn-custom text-center" data-toggle="modal" data-target="#showReviewModal">See review</button>
+          <%= render 'reviews/show', booking: booking %>
       <%  else %>
         <button type="button" class="btn btn-custom text-center" data-toggle="modal" data-target="#reviewModal">Add a review</button>
           <%= render 'reviews/form', booking: booking, review: @review %>

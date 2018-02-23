@@ -1,4 +1,4 @@
-<%= simple_form_for [ booking, review ], url: booking_reviews_path(booking), method: :post do |form| %>
+<%= simple_form_for [ booking, review ], remote: true do |form| %>
 
 <div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="reviewModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">

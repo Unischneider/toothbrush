@@ -14,6 +14,14 @@ class ReviewsController < ApplicationController
     redirect_to bookings_path
   end
 
+  def edit
+
+  end
+
+  def update
+
+  end
+
   private
   def set_booking
     @booking = Booking.find(params[:booking_id])
