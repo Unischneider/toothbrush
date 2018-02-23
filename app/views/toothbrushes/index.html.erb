@@ -13,7 +13,7 @@
 </div>
 <div class="container">
   <div class="counter-text text-center">
-    <h2>Currently <mark class="counter-highlight"> <%= @toothbrushes.where(availability: true).length%> </mark> toothbrushes for rent</h2>
+    <h2>Currently <mark class="counter-highlight"> <%= @toothbrushes.where(availability: true).length %> </mark> toothbrushes for rent</h2>
   </div>
   <div class="listing">
     <%= render "layouts/card" %>
@@ -21,7 +21,7 @@
 </div>
 <div class="container">
   <div class="listing-unavailable">
-    <h2>Check on these later again</h2>
+    <h2>Check what other people are renting</h2>
     <%= render "layouts/unavailable_card" %>
     <br>
     <br>
