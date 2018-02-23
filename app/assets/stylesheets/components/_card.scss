@@ -41,25 +41,50 @@
   font-weight: lighter;
 }
 
-.x-icon {
 
-}
 
 .card:hover {
   border-color: #E91E63;
+  .date {
+    visibility: visible;
+  }
+  .hiddens {
+    visibility: hidden;
+  }
   border: solid;
   border-width: 3px;
-    .unavailable-icon-index {
-    display: block;
+  .unavailable-icon-index {
+    visibility: visible;
     justify-content: center;
     font-size:  135px;
     opacity: 0.4;
   }
 }
 
-.unavailable-icon-index {
-  display: none;
+.hiddens {
+  visibility: visible;
+}
+
+.date {
   text-align: center;
+  top: -130px;
+  right: 6px;
+  position: relative;
+  vertical-align: center;
+  visibility: hidden;
+}
+
+.x-icon {
+  position: relative
+}
+.unavailable-icon-index {
+    position: relative;
+    top: 0px;
+    left: 98px;
+    visibility: hidden;
+    justify-content: center;
+    font-size: 135px;
+    opacity: 0.4;
 }
 
 
