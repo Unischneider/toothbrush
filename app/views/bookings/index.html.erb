@@ -15,8 +15,10 @@
         <p> <%= truncate( booking.toothbrush.description, length: 100)  %> </p>
       </div>
       <div class='product-body'>
-        <h3>Age</h3>
-        <p><%= booking.toothbrush.age %> days</p>
+        <h3>Date</h3>
+        <p><%= booking.starting_on %>
+          <br> until <br>
+         <%= booking.ending_on %> </p>
       </div>
       <div class='product-body'>
         <h3>People</h3>
@@ -55,8 +57,10 @@
         <p> <%= truncate( booking.toothbrush.description, length: 100)  %> </p>
       </div>
       <div class='product-body'>
-        <h3>Age</h3>
-        <p><%= booking.toothbrush.age %> days</p>
+        <h3>Date</h3>
+        <p><%= booking.starting_on %>
+          <br> until <br>
+         <%= booking.ending_on %></p>
       </div>
       <div class='product-body'>
         <h3>People</h3>
@@ -83,9 +87,8 @@
           </div>
         </div>
       <%  else %>
-        <div class="text-center review">
+        <button type="button" class="btn btn-custom text-center" data-toggle="modal" data-target="#reviewModal">Add a review</button>
           <%= render 'reviews/form', booking: booking, review: @review %>
-        </div>
       <% end %>
   <% end %>
   </div>

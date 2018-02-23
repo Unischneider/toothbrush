@@ -1,5 +1,28 @@
 <%= simple_form_for [ booking, review ], url: booking_reviews_path(booking), method: :post do |form| %>
-  <%= form.input :content, as: :text %>
-  <%= form.input :rating, placeholder: "1 - 5"%>
-  <%= form.button :submit %>
+
+<div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="reviewModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="reviewModalLabel">New review</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <%= form.input :rating, placeholder: "1 - 5"%>
+          </div>
+          <div class="form-group">
+            <%= form.input :content, as: :text %>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <%= form.button :submit, class: "btn btn-custom", data:{dismiss: "modal"} %>
+      </div>
+    </div>
+  </div>
+</div>
 <% end %>
