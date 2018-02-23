@@ -1,4 +1,4 @@
-<%= simple_form_for [ booking, review ], remote: true do |form| %>
+<%= simple_form_for([ booking, review ], remote: true) do |form| %>
 
 <div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="reviewModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -20,7 +20,7 @@
         </form>
       </div>
       <div class="modal-footer">
-        <%= form.button :submit, class: "btn btn-custom", data:{dismiss: "modal"} %>
+        <%= form.button :submit, class: "btn btn-custom" %>
       </div>
     </div>
   </div>
