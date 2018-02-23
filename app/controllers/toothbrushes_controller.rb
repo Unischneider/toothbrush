@@ -9,6 +9,7 @@ class ToothbrushesController < ApplicationController
   end
 
   def index
+    @bookings = policy_scope(Booking)
     @toothbrushes = policy_scope(Toothbrush)
     if params[:query].present?
       sql_query = " \
