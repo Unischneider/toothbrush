@@ -19,10 +19,9 @@ class ReviewsController < ApplicationController
   end
 
   def update
-    @review = Review.new(review_params)
+    @review = @booking.review
     authorize @review
-    @booking.review = @review
-    if @review.update(valid_params)
+    if @review.update(review_params)
       redirect_to bookings_path
     else
       render :edit
