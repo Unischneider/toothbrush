@@ -1,3 +1,4 @@
+import { autocomplete } from '../components/autocomplete';
 
 import GMaps from 'gmaps/gmaps.js';
 
@@ -158,6 +159,9 @@ if (markers.length === 0) {
 } else {
   map.setZoom(2);
 }
-}
+};
+
+
+autocomplete();
 
 
