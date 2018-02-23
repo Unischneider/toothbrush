@@ -1,4 +1,4 @@
-
+<div class="booking-index">
 <div class="text-center">
   <h2>Here are all the <strong id="red-word">upcoming rentals</strong>!</h2>
 </div>
@@ -16,11 +16,11 @@
       </div>
       <div class='product-body'>
         <h3>Age</h3>
-        <p><%= booking.toothbrush.age %> days</p>
+        <p><%= booking.toothbrush.age %> days old</p>
       </div>
       <div class='product-body'>
         <h3>People</h3>
-        <p><%= booking.toothbrush.people %></p>
+        <p>Used by <%= booking.toothbrush.people %> people</p>
       </div>
       <div class='product-body'>
         <h3>Material</h3>
@@ -90,4 +90,4 @@
   <% end %>
   </div>
 <% end %>
-
+</div>

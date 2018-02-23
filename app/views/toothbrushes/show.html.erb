@@ -1,5 +1,7 @@
 
+  <% unless @toothbrush.user == current_user %>
     <%= render "bookings/new" %>
+  <% end %>
 <div class="container">
   <div class="row">
    <div class="banner-content">
@@ -50,10 +52,10 @@
           <ul>
             <div class="col-xs-6">
               <li>
-                <i class="spec-icon fas fa-calendar-check"></i>Age: <strong> <%= @toothbrush.age %></strong>
+                <i class="spec-icon fas fa-calendar-check"></i>Age: <strong> <%= @toothbrush.age %> days old</strong>
               </li>
               <li>
-                <i class="spec-icon fas fa-users"></i>Uses: <strong> <%= @toothbrush.people %></strong>
+                <i class="spec-icon fas fa-users"></i>Used by: <strong> <%= pluralize @toothbrush.people, "person" %></strong>
               </li>
             </div>
             <div class="col-xs-6">
@@ -85,8 +87,5 @@
       </div>
     </div>
   </div>
-  <% unless @toothbrush.user == current_user %>
-    <%= render "bookings/new" %>
-  <% end %>
 </div>
 
