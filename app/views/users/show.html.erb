@@ -4,7 +4,7 @@
       <div class="centering-container">
         <div class="centering">
           <h1>Hey there <%= @user.first_name %>!</h1>
-        <h4>Address: <strong><%= @user.address %></strong></h4>
+          <h4>Address: <strong><%= @user.address %></strong></h4>
         <div class="photo">
           <%= cl_image_tag @user.photo, crop: :fill %>
         </div>
