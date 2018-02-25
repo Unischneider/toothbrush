@@ -4,7 +4,6 @@
   <h2>Here are all the <strong id="red-word">toothbrushes</strong> you are sharing!</h2>
 </div>
 <% @toothbrushes.each do |toothbrush| %>
-
 <div class="product">
   <div class='product-upvote'>
     <div class="product-arrow"></div>
@@ -29,16 +28,19 @@
   </div>
   <ul class="list-inline product-controls hidden-sm hidden-xs">
     <li>
-      <div class="btn btn-custom text-center">
-        <%= link_to "Edit", edit_toothbrush_path(toothbrush) %>
+      <div class="text-center">
+        <%= link_to "Edit", edit_toothbrush_path(toothbrush), class: "btn btn-login" %>
       </div>
     </li>
     <li>
-      <div class="btn btn-custom text-center">
-        <%= link_to "Delete", toothbrush_path(toothbrush), method: :delete %>
+      <div class="text-center">
+        <%= link_to "Delete", toothbrush_path(toothbrush), method: :delete, class: "btn btn-custom" %>
       </div>
     </li>
   </ul>
 </div>
 <% end %>
+<div class="text-center">
+  <%= link_to "Put your toothbrush for rent!", new_toothbrush_path, class: "btn btn-rent-brush"%>
+</div>
 </div>
