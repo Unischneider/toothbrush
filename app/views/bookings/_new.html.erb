@@ -1,12 +1,10 @@
 <div class="container-rent">
-     <h2>Renting your new breath</h2>
-      <div class="label form-inline">
-        <%= simple_form_for [@toothbrush, @booking] do |f| %>
-        <%= f.input :starting_on %>
-        <%= f.input :ending_on %>
-        <%= f.submit "Rent", class: "btn btn-login rent-btn" %>
-        <% end %>
-      </div>
-
-
+ <h2>Renting your new breath</h2>
+ <div class="label form-inline">
+  <%= simple_form_for [@toothbrush, @booking] do |f| %>
+  <%= f.input :starting_on %>
+  <%= f.input :ending_on %>
+  <%= f.submit "Rent", class: "btn btn-login rent-btn" %>
+  <% end %>
+</div>
 </div>

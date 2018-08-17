@@ -8,7 +8,7 @@
       <div class="form-group">
         <%= simple_form_for @toothbrush do |f|%>
          <div class="col-xs-6">
-          <%= f.input :name %>
+          <%= f.input :name, error: "hello" %>
           <%= f.input :age %>
           <%= f.input :uses %>
           <%= f.input :people %>
